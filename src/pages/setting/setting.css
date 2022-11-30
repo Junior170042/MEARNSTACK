@@ -1,0 +1,83 @@
+.setting {
+    display: flex;
+}
+
+.setting-content {
+    flex: 9;
+    padding: 20px;
+}
+
+.setting-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.update-title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: lightcoral;
+}
+
+.delete-title {
+    font-size: 14px;
+    color: red;
+    cursor: pointer;
+}
+
+.setting-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-profile {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.setting-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.setting-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: lightcoral;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.setting-form>label {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.setting-form>input {
+    margin: 10px 0;
+    color: gray;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.setting-form .btn-setting {
+    border: none;
+    width: 120px;
+    background: teal;
+    padding: 12px;
+    color: #fff;
+    font-size: 20px;
+    align-self: center;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 12px 0;
+}
