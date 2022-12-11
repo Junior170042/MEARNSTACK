@@ -49,6 +49,12 @@
     font-size: 20px;
 }
 
+.btn-login:disabled {
+    cursor: not-allowed;
+    background-color: darkgray;
+    color: #000;
+}
+
 .btn-register {
     color: #fff;
     background: teal;

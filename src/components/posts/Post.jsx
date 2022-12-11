@@ -1,16 +1,11 @@
 import { SinglePost } from "../single-post/SinglePost";
 import "./post.css";
 
-export const Post = () => {
+export const Post = ({ posts }) => {
   return (
     <>
       <div className="posts">
-        <SinglePost />
-        <SinglePost />
-        <SinglePost />
-        <SinglePost />
-        <SinglePost />
-        <SinglePost />
+        {posts.map(p => <SinglePost key={p._id} post={p} />)}
       </div>
     </>
   );

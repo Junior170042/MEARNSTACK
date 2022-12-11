@@ -1,8 +1,17 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 import "./TopBar.css";
 
 export const TopBar = () => {
-  const user = false;
+  const { user, dispatch } = useContext(Context);
+
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    window.location("/");
+
+  }
+
   return (
     <>
       <div className="top">
@@ -38,7 +47,7 @@ export const TopBar = () => {
             </li>
             {user && (
               <li className="topListItem">
-                <Link to="/logout" className="link">
+                <Link to="/" className="link" onClick={logout}>
                   Logout
                 </Link>
               </li>
@@ -47,15 +56,23 @@ export const TopBar = () => {
         </div>
         <div className="topRight">
           {user ? (
-            <img
-              className="profileImg "
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTN9TaGrF3qmBtBoXN5TaTdijk8dUfq2z7w6a-QjVoEjtxv2f2IcWph0-e7avSfpgTjdg&usqp=CAU"
-              alt="Profile"
-            />
+            <div className="user-profile">
+              <img
+                className="profileImg "
+                src={user.picture}
+                alt="Profile"
+              />
+              <p>{user.username}</p>
+            </div>
           ) : (
-            <Link to="/login" className="link logins">
-              Login
-            </Link>
+            <>
+              <Link to="/login" className="link logins">
+                Login
+              </Link>
+              <Link to="/register" className="link registers">
+                Register
+              </Link>
+            </>
           )}
           <i className=" searchIcon fa-solid fa-magnifying-glass"></i>
         </div>

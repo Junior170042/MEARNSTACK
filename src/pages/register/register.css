@@ -9,6 +9,11 @@
     padding: 0 20px;
 }
 
+.error {
+    font-size: 20px;
+    color: brown;
+}
+
 .register-title {
     font-size: 50px;
     font-family: serif;
