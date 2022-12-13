@@ -10,6 +10,14 @@
     object-fit: cover;
 }
 
+.post-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    font-family: serif;
+    margin-bottom: 10px;
+}
+
 .write-form {
     position: relative;
 }

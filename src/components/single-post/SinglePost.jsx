@@ -1,11 +1,13 @@
 import "./singlePost.css";
 import { Link } from "react-router-dom";
 export const SinglePost = ({ post }) => {
+
+  const path = "http://localhost:5000/images/";
   return (
     <>
       <div className="singlePost">
         <img
-          src={post.photo ? post.photo : "https://www.optum.com/health-articles/sites/default/files/styles/article_feature/public/images/NatureHeals_1200x800_3.jpg?itok=S4cxcQHz"}
+          src={post.photo ? path + post.photo : path + "placeholder.png"}
           alt="Post"
           className="postImage"
         />

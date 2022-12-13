@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { Context } from "../../context/Context"
 import "./postDetail.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 //import { useLocation } from "react-router-dom";
 export const PostDetail = ({ post_id }) => {
   const [post, setPost] = useState({});
+  const { user } = useContext(Context);
+  const path = "http://localhost:5000/images/";
   /*
   wse can get the id from the url in the location object
   const location = useLocation();
@@ -25,16 +29,20 @@ export const PostDetail = ({ post_id }) => {
 
       <div className="detail-content">
         <img
-          src={post.photo ? post.photo : "https://www.alro-group.com/wp-content/uploads/2014/12/placeholder.jpg"}
+          src={post.photo ? path + post.photo : path + "placeholder.png"}
           alt="detail"
           className="detailImg"
         />
         <h1 className="detail-title">
           {post.title}
-          <div className="edit-container">
-            <i className="detail-icon fa-regular fa-pen-to-square"></i>
-            <i className="detail-icon fa fa-trash"></i>
-          </div>
+
+          {user.username === post.username &&
+
+            <div className="edit-container">
+              <i className="detail-icon fa-regular fa-pen-to-square"></i>
+              <i className="detail-icon fa fa-trash"></i>
+            </div>
+          }
         </h1>
         <div className="detail-info">
 
