@@ -5,9 +5,13 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const postRoute = require("./routes/post");
 const categoryRoute = require("./routes/category");
+const path = require("path");
 const mongoose = require("mongoose");
-const multer = require('multer')
+const multer = require('multer');
+
+app.use("/images", express.static(path.join(__dirname, "/images")));
 app.use(express.json());
+
 mongoose
   .connect(process.env.DB_URI, {
     useNewUrlParser: true,
@@ -27,8 +31,7 @@ const storage = multer.diskStorage({
   }
 })
 
-const uploadFile = multer({ storage: storage })
-
+const uploadFile = multer({ storage: storage });
 app.post('/api/upload', uploadFile.single("file"), (req, res) => {
   res.status(200).json("File is upload successfully")
 })
