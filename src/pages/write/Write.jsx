@@ -5,7 +5,7 @@ import axios from "axios";
 export const Write = () => {
 
   const { user } = useContext(Context);
-  const path = "http://localhost:5000/images";
+  const path = "http://localhost:5000/images/";
 
   const [title, setTitle] = useState("");
   const [file, setFile] = useState("");
@@ -49,7 +49,7 @@ export const Write = () => {
     <div className="write">
       <h1 className="post-title">Add New Post</h1>
       <img
-        src={file ? URL.createObjectURL(file) : path + "/placeholder.png"}
+        src={file ? URL.createObjectURL(file) : path + "placeholder.png"}
         alt="Post-img"
         className="write-img"
       />
@@ -67,6 +67,7 @@ export const Write = () => {
             placeholder="Title"
             name="title"
             className="input-form input-title"
+            required
             onChange={(e) => setTitle(e.target.value)}
             autoFocus={true}
           />
@@ -75,6 +76,7 @@ export const Write = () => {
           <textarea
             type="text"
             neme="description"
+            required
             placeholder="Your story..."
             className="input-form input-story"
             onChange={(e) => setDesc(e.target.value)}

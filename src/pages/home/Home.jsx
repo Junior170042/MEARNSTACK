@@ -12,7 +12,7 @@ export const Home = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const resp = await axios.get('/post' + search);
+      const resp = await axios.get('/post' + search, { sort: { timestamp: -1 } });
       setPosts(resp.data);
     }
     getPost();
