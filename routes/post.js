@@ -11,6 +11,16 @@ router.post("/", async (req, res) => {
         res.status(404).json(error);
     }
 });
+//change post userName when the userName is changed
+router.post("/update_many", async (req, res) => {
+
+    try {
+        const modified = await Post.updateMany({ username: req.body.old }, { $set: { username: req.body.newUser } });
+        res.status(200).json(modified);
+    } catch (error) {
+        res.status(404).json(error);
+    }
+});
 
 //Update posts
 router.put("/:id", async (req, res) => {
@@ -43,7 +53,7 @@ router.delete("/:id", async (req, res) => {
         const post = await Post.findById(req.params.id);
         if (post.username === req.body.username) {
             try {
-                post.delete();
+                await post.delete();
                 res.status(200).json("Post is deleted successfully");
             } catch (error) {
                 res.status(401).json(error);

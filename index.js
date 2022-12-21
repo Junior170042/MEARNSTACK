@@ -1,4 +1,5 @@
 require("dotenv").config();
+const morgan = require("morgan");
 const express = require("express");
 const app = express();
 const authRoute = require("./routes/auth");
@@ -8,7 +9,6 @@ const categoryRoute = require("./routes/category");
 const path = require("path");
 const mongoose = require("mongoose");
 const multer = require('multer');
-
 app.use("/images", express.static(path.join(__dirname, "/images")));
 app.use(express.json());
 
