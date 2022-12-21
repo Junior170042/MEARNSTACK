@@ -28,6 +28,34 @@
     align-items: center;
 }
 
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-cat {
+    display: flex;
+    align-items: center;
+    margin-left: 150px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.form-group-cat label {
+    margin: 20px 0;
+    font-size: 24px;
+    color: darkgray;
+}
+
+.form-group-cat .input-cat {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    margin-left: 20px;
+    color: darkgray;
+}
+
 .form-icon {
     width: 25px;
     height: 25px;
@@ -59,8 +87,8 @@
 .btn-publish {
     position: absolute;
     font-size: 20px;
-    top: 20px;
-    right: 50px;
+    top: 100px;
+    right: 70px;
     padding: 12px;
     color: #fff;
     background: teal;

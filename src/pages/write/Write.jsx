@@ -8,8 +8,9 @@ export const Write = () => {
   const path = "http://localhost:5000/images/";
 
   const [title, setTitle] = useState("");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
+  const [cat, setCat] = useState("Other");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ export const Write = () => {
       title: title,
       description: desc,
       username: user.username,
+      categories: cat
     };
 
     if (file) {
@@ -71,18 +73,35 @@ export const Write = () => {
             onChange={(e) => setTitle(e.target.value)}
             autoFocus={true}
           />
+
+
+
+
         </div>
-        <div className="form-group">
-          <textarea
-            type="text"
-            neme="description"
-            required
-            placeholder="Your story..."
-            className="input-form input-story"
-            onChange={(e) => setDesc(e.target.value)}
-          />
+        <div className="form-content">
+          <div className="form-group form-group-cat">
+            <label for="cat">Post category</label>
+            <select name="cats" id="cat" className="input-cat"
+              onChange={(e) => setCat(e.target.value)}
+            >
+              <option value="Other">Other</option>
+              <option value="Music">Music</option>
+              <option value="Sport">Sport</option>
+              <option value="Life">Life</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <textarea
+              type="text"
+              neme="description"
+              required
+              placeholder="Your story..."
+              className="input-form input-story"
+              onChange={(e) => setDesc(e.target.value)}
+            />
+          </div>
         </div>
-        <button className="btn-publish" type="submit">Publish</button>
+        <button className="btn-publish" type="submit">Add Post</button>
       </form>
     </div>
   );

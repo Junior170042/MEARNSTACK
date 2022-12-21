@@ -5,6 +5,7 @@ import { SideBar } from "../../components/sidebar/SideBar";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import SideBarPost from "../../components/sidebarpost/SideBarPost";
 export const Home = () => {
 
   const [posts, setPosts] = useState([]);
@@ -23,7 +24,11 @@ export const Home = () => {
       <Header />
       <div className="home">
         <Post posts={posts} />
-        <SideBar />
+        <div className="home-side">
+
+          <SideBar />
+          <SideBarPost />
+        </div>
       </div>
     </>
   );

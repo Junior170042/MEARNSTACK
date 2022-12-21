@@ -4,6 +4,7 @@ import { Context } from "../../context/Context";
 import "./TopBar.css";
 
 export const TopBar = () => {
+  const path = "http://localhost:5000/images/";
   const { user, dispatch } = useContext(Context);
 
   const logout = () => {
@@ -17,8 +18,7 @@ export const TopBar = () => {
       <div className="top">
         <div className="topLeft">
           <i className="leftIcon fa-brands fa-square-facebook"></i>
-          <i className="leftIcon fa-brands fa-square-twitter"></i>
-          <i className="leftIcon fa-brands fa-square-pinterest"></i>
+          <i className="leftIcon fa-brands fa-linkedin"></i>
           <i className="leftIcon fa-brands fa-square-instagram"></i>
         </div>
         <div className="topCenter">
@@ -29,20 +29,8 @@ export const TopBar = () => {
               </Link>
             </li>
             <li className="topListItem">
-              {" "}
-              <Link to="/about" className="link">
-                About
-              </Link>
-            </li>
-            <li className="topListItem">
-              {" "}
-              <Link to="/contact" className="link">
-                Contact
-              </Link>
-            </li>
-            <li className="topListItem">
               <Link to="/write" className="link">
-                Write
+                Write a post
               </Link>
             </li>
             {user && (
@@ -57,11 +45,11 @@ export const TopBar = () => {
         <div className="topRight">
           {user ? (
             <div className="user-profile">
-              <img
+              <Link to="/setting"><img
                 className="profileImg "
-                src={user.picture}
+                src={path + user.picture}
                 alt="Profile"
-              />
+              /></Link>
               <p>{user.username}</p>
             </div>
           ) : (
@@ -74,7 +62,6 @@ export const TopBar = () => {
               </Link>
             </>
           )}
-          <i className=" searchIcon fa-solid fa-magnifying-glass"></i>
         </div>
       </div>
     </>

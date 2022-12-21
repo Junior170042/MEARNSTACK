@@ -8,7 +8,7 @@ export const Register = () => {
   const [email, setMail] = useState('');
   const [password, setPass] = useState('');
   // eslint-disable-next-line no-unused-vars
-  const [error, setError] = useState(false)
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export const Register = () => {
       });
       await res.data && window.location.replace("/login");
     } catch (error) {
-      setError(true)
+      setError(error.message)
     }
 
   }
@@ -49,7 +49,7 @@ export const Register = () => {
         </Link>
       </button>
 
-      {error && <span className="error">Somethimg went wrong</span>}
+      {error && <span className="error">{error === "Request failed with status code 600" && "email is already in use"}</span>}
     </div>
   );
 };

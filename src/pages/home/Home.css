@@ -1,3 +1,39 @@
 .home {
     display: flex;
 }
+
+.home .home-side {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+.home .home-side .sidePostImg {
+    margin-top: 12px;
+    width: 300px;
+    height: 200px;
+}
+
+.home .home-side .sidePost {
+    margin-bottom: 12px;
+    background-color: #fdfbfb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.home .home-side .side-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 6px;
+    margin: 10px;
+}
+
+.home .home-side .side-desc {
+    font-size: 14px;
+    padding: 8px;
+    margin: 6px;
+}

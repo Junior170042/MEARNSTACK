@@ -24,6 +24,25 @@ const Reducer = (state, action) => {
                 isFitching: false,
                 error: false
             }
+
+        case "UPDATE_START":
+            return {
+                ...state,
+                isFitching: true,
+                error: false
+            };
+        case "UPDATE_SUCCESS":
+            return {
+                user: action.payload,
+                isFitching: false,
+                error: false
+            }
+        case "UPDATE_FAILURE":
+            return {
+                ...state,
+                isFitching: false,
+                error: true
+            }
         default: return state;
     }
 

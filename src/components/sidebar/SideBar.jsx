@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 export const SideBar = () => {
 
+  const path = "http://localhost:5000/images/";
+
   const [categories, setCat] = useState([]);
 
   useEffect(() => {
@@ -19,17 +21,14 @@ export const SideBar = () => {
     <>
       <div className="side-bar">
         <div className="sidebarItem">
-          <span className="sidebarTitle">ABOUT ME</span>
+          <span className="sidebarTitle">Blog App Made With React & Node</span>
           <img
-            src="https://media.istockphoto.com/id/1088909778/photo/portrait-of-handsome-smiling-young-man-studio-shot.jpg?s=170667a&w=0&k=20&c=aS1I71X6jSTTdFJFxgL5nmb-2ACzbw7prj3lIVvX-2U="
+            src={path + "side.png"}
             alt="Man"
             className="sidebarImg"
           />
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Reprehenderit, veritatis veniam ducimus dignissimos suscipit quasi
-            assumenda corporis nobis optio sint voluptatem aspernatur cum sequi.
-          </p>
+            Blog app made with React & Node, Node is used as backend for request like post, put,get, and delete. it's a basic application, user can add , delete and update post after being registered. Posts can be filtered by category.</p>
         </div>
         <div className="sidebarItem">
           <span className="sidebarTitle">CATEGORIES</span>
@@ -43,8 +42,7 @@ export const SideBar = () => {
           <span className="sidebarTitle">FALLOW US</span>
           <div className="sidebarSocial">
             <i className="sidebarIcon fa-brands fa-square-facebook"></i>
-            <i className="sidebarIcon fa-brands fa-square-twitter"></i>
-            <i className="sidebarIcon fa-brands fa-square-pinterest"></i>
+            <i className="sidebarIcon fa-brands fa-linkedin"></i>
             <i className="sidebarIcon fa-brands fa-square-instagram"></i>
           </div>
         </div>
