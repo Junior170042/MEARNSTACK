@@ -1,9 +1,8 @@
 const User = require("../models/users");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-
 const userPost = require("../models/posts");
-
+const jwt = require("jsonwebtoken");
 //update user
 router.put("/:id", async (req, res) => {
   if (req.body.userId === req.params.id) {
@@ -21,7 +20,7 @@ router.put("/:id", async (req, res) => {
         { new: true }
       );
       res.status(200).json(updateUser);
-    } catch (error) {}
+    } catch (error) { }
   } else {
     //not allowed
     res.status(401).json("User can not be modified");
@@ -56,7 +55,36 @@ router.get("/:id", async (req, res) => {
     const user = await User.findById(req.params.id);
     const { password, ...others } = user._doc;
     res.status(200).json(others);
-  } catch (error) {}
+  } catch (error) { }
 });
+
+router.post("/token", async (req, res) => {
+  //get the token
+  const token = req.cookies.jwt;
+
+  if (token) {
+    jwt.verify(token, "_mytoken secrete keys", async (err, decodedToken) => {
+      if (err) {
+        res.json({ status: false })
+
+      } else {
+        const user = await User.findById(decodedToken.id);
+        if (user) {
+          res.json({ status: true, user });
+
+        }
+        else {
+          res.json({ status: false });
+
+        }
+
+      }
+    })
+  } else {
+    res.json({ status: false })
+  }
+
+})
+
 
 module.exports = router;
