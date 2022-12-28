@@ -41,12 +41,32 @@
       .registers {
         margin-left: 10px;
       }
+
+      div.active {
+        background-color: #fff;
+        color: #333;
+      }
     </style>
 
     <title>React Blog App</title>
   </head>
-  <body>
+  <body onscroll="scrollEvent();">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      function scrollEvent() {
+        const navBar = document.querySelector(".top");
+        if (navBar) {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            navBar.classList.add("active");
+          } else {
+            navBar.classList.remove("active");
+          }
+        }
+      }
+    </script>
   </body>
 </html>

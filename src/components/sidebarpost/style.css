@@ -1,0 +1,12 @@
+.sidePost .sidebarItem h2.side-title {
+    font-family: 'Varela Round',
+        sans-serif;
+    font-size: 18px;
+    color: #444;
+}
+
+.sidePost p.side-desc {
+    color: #555;
+    font-family: Tahoma;
+    border-bottom: 1px solid #333;
+}

@@ -11,6 +11,14 @@
     color: #fff;
 }
 
+div.active {
+    color: #333;
+}
+
+div.active .topLeft .leftIcon {
+    color: #333;
+}
+
 .user-profile {
     display: flex;
     align-items: center;

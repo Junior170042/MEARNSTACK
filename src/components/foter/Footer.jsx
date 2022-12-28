@@ -5,9 +5,7 @@ export const Footer = () => {
         <div className="footer">
             <div className="footer-text">
                 <h2>About us</h2>
-                <div className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ipsam temporibus eveniet reiciendis beatae consectetur, saepe, voluptas architecto animi tenetur eaque! Aliquam in assumenda id maxime repudiandae laudantium excepturi praesentium.
-                    Adipisci iure quo eius obcaecati, in ea. Officiis, laboriosam! Impedit, dolore laboriosam quisquam possimus nostrum perferendis rem beatae eos reprehenderit velit aliquid deserunt, in, nulla eligendi omnis officiis. Optio, eius.
-                    Maiores magni minus ea earum porro odio deleniti neque commodi. Voluptatum obcaecati aut accusamus tempore exercitationem error dolores, maiores facilis quis quibusdam distinctio voluptates quo fugiat enim ullam odit porro!</div>
+                <div className="text">Quick word of advice: If you do choose to go down the avenue of one group photo, do be sure to take into account that naturally people may come and go from your team over time, which will require your photo to be updated more often. But if this is not a problem, then go ahead!</div>
             </div>
             <div className="footer-social">
                 <h2>Join us in our community</h2>

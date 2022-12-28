@@ -2,9 +2,8 @@ import "./sideBar.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SwiperSide from "../swiper/SwiperSide";
 export const SideBar = () => {
-
-  const path = "http://localhost:5000/images/";
 
   const [categories, setCat] = useState([]);
 
@@ -22,11 +21,7 @@ export const SideBar = () => {
       <div className="side-bar">
         <div className="sidebarItem">
           <span className="sidebarTitle">Blog App Made With React & Node</span>
-          <img
-            src={path + "side.png"}
-            alt="Man"
-            className="sidebarImg"
-          />
+          <SwiperSide />
           <p>
             Blog app made with React & Node, Node is used as backend for request like post, put,get, and delete. it's a basic application, user can add , delete and update post after being registered. Posts can be filtered by category.</p>
         </div>
@@ -55,6 +50,7 @@ export const SideBar = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };

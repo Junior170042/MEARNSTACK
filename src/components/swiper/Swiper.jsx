@@ -23,7 +23,7 @@ export const SwiperDemo = ({ posts }) => {
                 modules={[Autoplay, EffectCards]}
                 className="mySwiper"
             >
-                {posts.length > 0 && posts.map(post => <SwiperSlide>
+                {posts.length > 0 && posts.map(post => <SwiperSlide key={post._id}>
                     <img src={post.photo ? path + post.photo : path + "placeholder.png"}
                         className="swiper-img"
                         alt="swiperImg"

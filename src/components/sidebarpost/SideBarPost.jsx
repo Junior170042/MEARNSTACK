@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import { useEffect } from 'react';
+import "./style.css"
 const SideBarPost = () => {
 
     const [posts, setPosts] = useState([]);
@@ -22,12 +23,12 @@ const SideBarPost = () => {
                 post.categories[0] !== 'Sport' &&
                 <div className=" sidePost" key={post._id}>
                     <div className="sidebarItem">
+                        <h2 className="side-title">{post.title}</h2>
                         <img
                             src={post.photo ? path + post.photo : path + "placeholder.png"}
                             alt="Man"
                             className="sidePostImg"
                         />
-                        <h2 className="side-title">{post.title}</h2>
                     </div>
                     <p className="side-desc">
                         {post.description.split("", 200)}</p>

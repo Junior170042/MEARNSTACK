@@ -6,7 +6,7 @@ export const Header = ({ posts }) => {
     <div className="header">
       <div className="headerTitles">
         <span className="headerTitleSm">React & Node</span>
-        <span className="headerTitleLg">BLOG</span>
+        <span className="headerTitleLg">LIFE'S ON FIRE</span>
       </div>
       <div className="headerImg">
         <div className="header-text">

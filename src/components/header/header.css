@@ -8,18 +8,18 @@
     flex-direction: column;
     align-items: center;
     font-family: "Lora", serif;
-    color: #444;
+    color: #333;
 }
 
 .headerTitleSm {
     position: absolute;
-    top: 18%;
+    top: 15%;
     font-size: 20px;
 }
 
 .headerTitleLg {
     position: absolute;
-    top: 20%;
+    top: 18%;
     font-size: 100px;
 }
 
@@ -28,12 +28,11 @@
     height: 450px;
     margin-top: 80px;
     object-fit: cover;
-    opacity: 0.6;
-    background-image: url(./header.png);
-    background-size: cover;
+    background-image: url("./hbg.jpg");
+    background-size: 100%;
     background-blend-mode: multiply;
     background-position: center;
-    background-color: rgb(248, 101, 138);
+    background-repeat: no-repeat;
     display: flex;
 }
 
@@ -43,7 +42,7 @@
     width: 50%;
     padding: 14px;
     margin: 14px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .headerImg .header-text h1 {
@@ -51,11 +50,12 @@
     font-family: serif;
     font-size: 40px;
     margin-top: 30px;
+    color: #fff;
 }
 
 .headerImg .header-swiper {
     width: 50%;
-    margin-top: 30px;
+    margin-top: 40px;
     position: relative;
 }
 
