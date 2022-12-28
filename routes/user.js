@@ -20,7 +20,9 @@ router.put("/:id", async (req, res) => {
         { new: true }
       );
       res.status(200).json(updateUser);
-    } catch (error) { }
+    } catch (error) {
+      res.status(500).json(error)
+    }
   } else {
     //not allowed
     res.status(401).json("User can not be modified");
