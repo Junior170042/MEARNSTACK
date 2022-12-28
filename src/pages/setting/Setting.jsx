@@ -3,6 +3,7 @@ import { SideBar } from "../../components/sidebar/SideBar";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 export const Setting = () => {
 
@@ -46,6 +47,9 @@ export const Setting = () => {
       })
       const res = await axios.put("/user/" + user._id, updatedUser);
       dispatch({ type: "UPDATE_SUCCESS", payload: await res.data })
+      toast.success("User updated successfully!", {
+        position: toast.POSITION.TOP_CENTER
+      });
       window.location.reload();
     } catch (error) {
       dispatch({ type: "UPDATE_FAILURE" })
@@ -93,6 +97,7 @@ export const Setting = () => {
         </form>
       </div>
       <SideBar />
+      <ToastContainer />
     </div>
   );
 };

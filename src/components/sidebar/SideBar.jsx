@@ -41,9 +41,17 @@ export const SideBar = () => {
         <div className="sidebarItem">
           <span className="sidebarTitle">FALLOW US</span>
           <div className="sidebarSocial">
-            <i className="sidebarIcon fa-brands fa-square-facebook"></i>
-            <i className="sidebarIcon fa-brands fa-linkedin"></i>
-            <i className="sidebarIcon fa-brands fa-square-instagram"></i>
+            <a className="link" href=" https://www.facebook.com/juniorhens.vernard" target="_blank">
+              <i className="sidebarIcon fa-brands fa-square-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/invites/contact/?i=1wvdpbesps17q&utm_content=o6xi1f0" className="link" target="_blank" rel="noopener noreferrer">
+              <i className="sidebarIcon fa-brands fa-square-instagram"></i>
+
+            </a>
+            <a href="https://www.linkedin.com/in/st-verty-vernard/" className="link" target="_blank" rel="noopener noreferrer">
+
+              <i className="sidebarIcon fa-brands fa-linkedin"></i>
+            </a>
           </div>
         </div>
       </div>

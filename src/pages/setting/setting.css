@@ -2,8 +2,12 @@
     display: flex;
 }
 
+.setting .side-bar {
+    flex: 4;
+}
+
 .setting-content {
-    flex: 9;
+    flex: 8;
     padding: 20px;
 }
 

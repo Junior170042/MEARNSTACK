@@ -6,10 +6,36 @@ import { SinglePage } from "./pages/single/SinglePage";
 import { Write } from "./pages/write/Write";
 import { TopBar } from "./components/topBar/TopBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useCookies } from 'react-cookie';
+import axios from "axios";
 import { Context } from "./context/Context";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
-  const { user } = useContext(Context);
+
+  const [cookies] = useCookies([]);
+  const { user, dispatch } = useContext(Context);
+
+  useEffect(() => {
+
+    const verify = async () => {
+      if (!cookies.jwt) {
+        dispatch({ type: "LOGIN_FAILURE" });
+      } else {
+        const { data } = await axios.post("/user/token", {}, { withCredentials: true })
+        if (data.status) {
+          dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
+        } else {
+          dispatch({ type: "LOGIN_FAILURE" });
+        }
+      }
+    }
+
+    verify();
+
+  }, [cookies, dispatch])
+
   return (
     <>
       <BrowserRouter>

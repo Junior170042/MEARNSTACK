@@ -2,5 +2,12 @@
     flex: 9;
     display: flex;
     flex-wrap: wrap;
-    margin: 8px;
+    margin: 6px;
+}
+
+.singular {
+    flex: 12;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 6px;
 }

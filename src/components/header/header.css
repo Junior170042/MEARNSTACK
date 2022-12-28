@@ -28,5 +28,61 @@
     height: 450px;
     margin-top: 80px;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 0.6;
+    background-image: url(./header.png);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-color: rgb(248, 101, 138);
+    display: flex;
+}
+
+.headerImg .header-text {
+    color: #fff;
+    font-family: Times;
+    width: 50%;
+    padding: 14px;
+    margin: 14px;
+    margin-top: 30px;
+}
+
+.headerImg .header-text h1 {
+    text-transform: uppercase;
+    font-family: serif;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.headerImg .header-swiper {
+    width: 50%;
+    margin-top: 30px;
+    position: relative;
+}
+
+.header-swiper p.swiper-text {
+    position: absolute;
+    padding: 6px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.swiper {
+    width: 80%;
+    height: 380px;
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.swiper-slide .swiper-img {
+    object-fit: cover;
+    opacity: 0.9;
+    filter: blur(0.8px);
+    -webkit-filter: blur(0.8px);
 }

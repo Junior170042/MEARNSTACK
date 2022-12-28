@@ -3,7 +3,6 @@ import "./write.css";
 import { Context } from "../../context/Context";
 import axios from "axios";
 export const Write = () => {
-
   const { user } = useContext(Context);
   const path = "http://localhost:5000/images/";
 
@@ -75,12 +74,10 @@ export const Write = () => {
           />
 
 
-
-
         </div>
         <div className="form-content">
           <div className="form-group form-group-cat">
-            <label for="cat">Post category</label>
+            <label htmlFor="cat">Post category</label>
             <select name="cats" id="cat" className="input-cat"
               onChange={(e) => setCat(e.target.value)}
             >

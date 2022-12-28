@@ -8,23 +8,29 @@
     flex: 3;
 }
 
-.home .home-side .sidePostImg {
+.home .flex-side {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+.sidePostImg {
     margin-top: 12px;
     width: 300px;
     height: 200px;
 }
 
-.home .home-side .sidePost {
+.sidePost {
     margin-bottom: 12px;
     background-color: #fdfbfb;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0px;
+
 }
 
-.home .home-side .side-title {
+.side-title {
     text-align: center;
     text-transform: uppercase;
     font-size: 14px;
@@ -32,7 +38,7 @@
     margin: 10px;
 }
 
-.home .home-side .side-desc {
+.side-desc {
     font-size: 14px;
     padding: 8px;
     margin: 6px;

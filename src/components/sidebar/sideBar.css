@@ -1,66 +1,87 @@
-.side-bar {
-    background-color: #fdfbfb;
-    margin-right: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+ .flex-side .side-bar {
+     background-color: #fdfbfb;
+     margin-right: 20px;
+     border-radius: 10px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-bottom: 20px;
+ }
 
-.sidebarItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+ .home-side .side-bar {
+     background-color: #fdfbfb;
+     margin-right: 20px;
+     border-radius: 10px;
+     display: flex;
+     flex: 3;
+     flex-direction: column;
+     align-items: center;
+     margin-bottom: 20px;
+ }
 
-.sidebarItem>img {
-    margin-top: 20px;
-    width: 400px;
-    border-radius: 12px;
-    opacity: 0.7;
-    height: 300px;
-}
+ .single .side-bar {
+     background-color: #fdfbfb;
+     margin-right: 20px;
+     border-radius: 10px;
+     display: flex;
+     flex: 3;
+     flex-direction: column;
+     align-items: center;
+     margin-bottom: 20px;
+ }
 
-.sidebarItem>p {
-    padding: 30px
-}
+ .sidebarItem {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
 
-.sidebarList {
-    margin-bottom: 20px;
-    list-style: none;
-}
+ .sidebarItem>img {
+     width: 400px;
+     border-radius: 12px;
+     opacity: 0.7;
+     height: 300px;
+ }
 
-.sidbarListItem {
-    display: inline-block;
-    width: 50%;
-    cursor: pointer;
-    margin-top: 10px;
-}
+ .sidebarItem>p {
+     padding: 30px
+ }
 
-.sidebarSocial {
-    display: flex;
-    margin-bottom: 12px;
-    margin-top: 10px;
-    align-items: center;
-    width: 260px;
-    justify-content: center;
-}
+ .sidebarList {
+     margin-bottom: 20px;
+     list-style: none;
+ }
 
-.sidebarIcon {
-    margin-left: 12px;
-    font-size: 20px;
-    cursor: pointer;
-}
+ .sidbarListItem {
+     display: inline-block;
+     width: 50%;
+     cursor: pointer;
+     margin-top: 10px;
+ }
 
-.sidebarTitle {
-    margin: 10px;
-    padding: 6px;
-    width: 80%;
-    border-top: 1px solid #cece;
-    border-bottom: 1px solid #cece;
-    font-family: 'Varela Round', sans-serif;
-    line-height: 20px;
-    font-weight: 300;
-    color: #222;
-    text-align: center;
-}
+ .sidebarSocial {
+     display: flex;
+     margin-top: 10px;
+     align-items: center;
+     width: 260px;
+     justify-content: center;
+ }
+
+ .sidebarIcon {
+     margin-left: 12px;
+     font-size: 20px;
+     cursor: pointer;
+ }
+
+ .sidebarTitle {
+     margin: 10px;
+     padding: 6px;
+     width: 80%;
+     border-top: 1px solid #cece;
+     border-bottom: 1px solid #cece;
+     font-family: 'Varela Round', sans-serif;
+     line-height: 20px;
+     font-weight: 300;
+     color: #222;
+     text-align: center;
+ }

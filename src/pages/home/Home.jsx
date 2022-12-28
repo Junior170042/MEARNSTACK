@@ -6,8 +6,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import SideBarPost from "../../components/sidebarpost/SideBarPost";
-export const Home = () => {
+import { Footer } from "../../components/foter/Footer";
 
+export const Home = () => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
 
@@ -17,19 +18,24 @@ export const Home = () => {
       setPosts(resp.data);
     }
     getPost();
+
   }, [search])
 
   return (
     <>
-      <Header />
+      <Header posts={posts} />
       <div className="home">
         <Post posts={posts} />
-        <div className="home-side">
+        <div className={!search ? "flex-side" : "home-side"}>
 
           <SideBar />
-          <SideBarPost />
+          {
+            posts.length !== 1 &&
+            <SideBarPost />
+          }
         </div>
       </div>
+      <Footer />
     </>
   );
 };

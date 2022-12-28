@@ -1,17 +1,24 @@
+import { SwiperDemo } from "../swiper/Swiper";
 import "./header.css";
 
-export const Header = () => {
+export const Header = ({ posts }) => {
   return (
     <div className="header">
       <div className="headerTitles">
         <span className="headerTitleSm">React & Node</span>
         <span className="headerTitleLg">BLOG</span>
       </div>
-      <img
-        className="headerImg"
-        src="https://images.newscientist.com/wp-content/uploads/2019/06/13111643/gettyimages-485057010.jpg?crop=4:3,smart&width=1200&height=900&upscale=true"
-        alt="Header"
-      />
+      <div className="headerImg">
+        <div className="header-text">
+          <h1>share your life with others and you will be able to know what people think about you!</h1>
+
+        </div>
+        <div className="header-swiper">
+          <SwiperDemo posts={posts} />
+        </div>
+      </div>
+
     </div>
+
   );
 };

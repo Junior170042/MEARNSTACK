@@ -4,7 +4,7 @@ import "./post.css";
 export const Post = ({ posts }) => {
   return (
     <>
-      <div className="posts">
+      <div className={posts.length === 1 ? "singular" : "posts"}>
         {posts.map(p => <SinglePost key={p._id} post={p} />)}
       </div>
     </>
