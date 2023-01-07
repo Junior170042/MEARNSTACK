@@ -8,9 +8,6 @@ export const SinglePost = ({ post }) => {
 
       <div className="singlePost">
 
-
-
-
         <img
           src={post.photo ? path + post.photo : path + "placeholder.png"}
           alt="Post"

@@ -5,8 +5,62 @@
     color: #444;
 }
 
+.sidePost p.side-desc1 {
+    display: none
+}
+
 .sidePost p.side-desc {
     color: #555;
     font-family: Tahoma;
     border-bottom: 1px solid #333;
+}
+
+@media screen and (max-width:1300px) {
+    .home .sidePostContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 100px;
+
+    }
+
+    .home .sidePostContainer .sidePost {
+        width: 50%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .home .sidePostContainer .sidePost .sidebarItem {
+        margin-right: 0;
+        display: block;
+        width: 100%;
+        text-align: center
+    }
+
+    .home .sidePostContainer .sidePost .sidebarItem .side-title {
+        padding: 10px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .home .sidePostContainer .sidePost .sidebarItem .sidePostImg {
+        width: 90%;
+    }
+
+    .sidePost p.side-desc1 {
+        display: block;
+        font-size: 22px;
+    }
+
+    .sidePost p.side-desc2 {
+        display: none;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .home .sidePostContainer .sidePost {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 }

@@ -24,17 +24,19 @@ export const Home = () => {
   return (
     <>
       <Header posts={posts} />
-      <div className="home">
+      <div className="home" >
+        <h1 className="head-titles">Our news later!</h1>
         <Post posts={posts} />
         <div className={!search ? "flex-side" : "home-side"}>
+          <SideBar posts={posts} />
 
-          <SideBar />
           {
             posts.length !== 1 &&
             <SideBarPost />
           }
         </div>
       </div>
+      <hr />
       <Footer />
     </>
   );

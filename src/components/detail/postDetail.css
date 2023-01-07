@@ -109,3 +109,11 @@
     font-size: 30px;
     font-weight: 300;
 }
+
+@media screen and (max-width:1300px) {
+    .detail-text {
+        font-size: 22px;
+        margin-bottom: 16px;
+
+    }
+}

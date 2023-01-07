@@ -1,15 +1,15 @@
-import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./style.css";
+
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-cards";
-import { Autoplay } from "swiper";
+import "swiper/css/pagination";
+
+import "./swiperStyle.css";
 
 // import required modules
-import { EffectCards } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 
-export const SwiperDemo = ({ posts }) => {
+export default function SwiperResponsive({ posts }) {
     const path = "http://localhost:5000/images/";
     return (
         <>
@@ -18,21 +18,20 @@ export const SwiperDemo = ({ posts }) => {
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                effect={"cards"}
-                grabCursor={true}
-                modules={[Autoplay, EffectCards]}
-                className="mySwiper"
-            >
+                pagination={true}
+                modules={[Pagination, Autoplay]}
+                className={posts.length === 1 ? "singleSwiper" : "swiperResponsive"}>
+
                 {posts.length > 0 && posts.map(post => <SwiperSlide key={post._id}>
                     <img src={post.photo ? path + post.photo : path + "placeholder.png"}
-                        className="swiper-img"
+                        className="swiperResImg"
                         alt="swiperImg"
                     />
-                    <p className="swiper-text">{post.title}</p>
+                    <h3 className="swiperResText">{post.categories[0]}</h3>
                 </SwiperSlide>)}
 
 
             </Swiper>
         </>
-    )
+    );
 }

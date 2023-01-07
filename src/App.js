@@ -11,7 +11,6 @@ import { useCookies } from 'react-cookie';
 import axios from "axios";
 import { Context } from "./context/Context";
 import "react-toastify/dist/ReactToastify.css";
-
 function App() {
 
   const [cookies] = useCookies([]);

@@ -1,6 +1,6 @@
 .singular .singlePost {
-    width: 80%;
-    margin: 0 25px 40px 25px;
+    width: 70%;
+    margin: 0 12px 40px 18px;
 }
 
 .posts .singlePost {
@@ -59,4 +59,11 @@
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width:1300px) {
+    .home .posts .singlePost {
+        width: 45%;
+        margin: 0 0px 6px 25px;
+    }
 }

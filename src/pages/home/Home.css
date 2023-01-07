@@ -1,5 +1,16 @@
+h1.head-titles {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 60px;
+    display: none;
+}
+
 .home {
     display: flex;
+}
+
+.home .sideAfter {
+    display: none;
 }
 
 .home .home-side {
@@ -42,4 +53,49 @@
     font-size: 14px;
     padding: 8px;
     margin: 6px;
+}
+
+@media screen and (max-width:1300px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .home {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .home .sideBefore {
+        display: none;
+    }
+
+    .home .sideAfter {
+        display: block;
+    }
+
+    .home h1.head-titles {
+        display: block;
+    }
+
+    .home .posts {
+        width: 100%;
+        margin-top: 80px;
+        margin-left: 0;
+        margin-right: 0;
+        overflow: hidden;
+    }
+
+    .home .posts .singlePost {
+        width: 350px;
+        margin: 0 20px 40px 20px;
+    }
+
+}
+
+@media screen and (max-width:540px) {
+    .home {
+        flex-direction: column;
+    }
 }

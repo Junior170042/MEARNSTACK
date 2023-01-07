@@ -3,11 +3,43 @@
     display: flex;
     flex-wrap: wrap;
     margin: 6px;
+    margin-top: 20px;
 }
 
 .singular {
-    flex: 12;
     display: flex;
     flex-wrap: wrap;
     margin: 6px;
+    flex: 8;
+    margin-right: 0;
+}
+
+@media screen and (max-width:1300px) {
+    .home .singular {
+        width: 130%;
+        flex: 12;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:540px) {
+    .home .posts {
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+    }
+
+    .home .posts .singlePost {
+        width: 100%;
+        margin: 6px;
+    }
+
+    .home .singular {
+        flex: 12;
+        display: flex;
+        width: 100%;
+        margin: 6px;
+        margin-top: 20px;
+    }
 }

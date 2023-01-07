@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SwiperSide from "../swiper/SwiperSide";
-export const SideBar = () => {
+export const SideBar = ({ posts }) => {
 
   const [categories, setCat] = useState([]);
 
@@ -21,11 +21,18 @@ export const SideBar = () => {
       <div className="side-bar">
         <div className="sidebarItem">
           <span className="sidebarTitle">Blog App Made With React & Node</span>
-          <SwiperSide />
-          <p>
-            Blog app made with React & Node, Node is used as backend for request like post, put,get, and delete. it's a basic application, user can add , delete and update post after being registered. Posts can be filtered by category.</p>
+
+        </div>
+        <div className="swiperSideContent">
+
+          <SwiperSide posts={posts} />
         </div>
         <div className="sidebarItem">
+          <p className="sidebarP">
+            Blog app made with React & Node, Node is used as backend for request like post, put,get, and delete. it's a basic application, user can add , delete and update post after being registered. Posts can be filtered by category.</p>
+
+        </div>
+        <div className="sidebarItem sidebarCat">
           <span className="sidebarTitle">CATEGORIES</span>
           <ul className="sidebarList">
             {categories.length > 0 && categories.map(cat => <Link to={"/?cat=" + cat.name} className="link" key={cat._id}>

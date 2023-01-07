@@ -77,3 +77,19 @@
     -ms-transition: transform 0.6s ease-in;
     -o-transition: transform 0.6s ease-in;
 }
+
+@media screen and (max-width:540px) {
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-social {
+        width: 100%;
+        text-align: center;
+    }
+}

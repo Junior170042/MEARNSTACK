@@ -1,5 +1,5 @@
-.swiperSide {
-    width: 50%;
+.swiperSideContent {
+    display: none;
 }
 
 .swiperSide img {
@@ -10,6 +10,16 @@
 @media only screen and (min-width: 769px) {
     .swiper-slide:first-child {
         transition: transform 100ms;
+    }
+
+    .swiperSideContent {
+        display: block;
+    }
+
+    .swiperSide {
+        display: flex;
+        width: 100%;
+        top: 100px;
     }
 
     .swiper-slide:first-child img {
