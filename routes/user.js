@@ -65,7 +65,7 @@ router.post("/token", async (req, res) => {
   const token = req.cookies.jwt;
 
   if (token) {
-    jwt.verify(token, "_mytoken secrete keys", async (err, decodedToken) => {
+    jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
       if (err) {
         res.json({ status: false })
 

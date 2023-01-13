@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 //one day validation access
 const validateTime = 1 * 24 * 60 * 60;
 const createToken = (id) => {
-  return jwt.sign({ id }, "_mytoken secrete keys", {
+  return jwt.sign({ id }, process.env.SECRET_KEY, {
     expiresIn: validateTime,
   })
 }
