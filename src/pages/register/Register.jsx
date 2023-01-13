@@ -40,7 +40,6 @@ export const Register = () => {
         });
         res && window.location.replace("/login");
       } catch (error) {
-        console.log(error);
       }
 
     }

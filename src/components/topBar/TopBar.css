@@ -1,6 +1,6 @@
 .top {
-    width: 100%;
-    height: 50px;
+    min-width: 100%;
+    min-height: 60px;
     display: flex;
     position: sticky;
     top: 0;
@@ -151,6 +151,23 @@ div.active .topLeft .leftIcon {
     }
 }
 
+@media screen and (max-width:750px) {
+    .top .topRight .user-profile {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .top {
+        min-height: 280px;
+    }
+
+    .top .topCenter .topList {
+        flex-direction: column;
+    }
+}
+
 @media screen and (max-width:540px) {
     .top {
         min-width: 102.3%;
@@ -167,6 +184,16 @@ div.active .topLeft .leftIcon {
     .top {
         min-width: 103%;
     }
+
+    .top .topRight .user-profile .profileImg {
+        width: 40%;
+        height: 0%;
+    }
+
+    .top .topRight .user-profile p {
+        font-size: 16px;
+        margin-left: -60px;
+    }
 }
 
 @media screen and (max-width:360px) {
@@ -178,5 +205,6 @@ div.active .topLeft .leftIcon {
 @media screen and (max-width:280px) {
     .top {
         min-width: 105.5%;
+        height: 180px;
     }
 }

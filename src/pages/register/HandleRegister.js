@@ -34,7 +34,6 @@ export const HandleRegister = async (
                     }
                 }
             } catch (error) {
-                console.log(error)
             }
         }
     }
@@ -58,7 +57,6 @@ export const HandleRegister = async (
                     }
                 }
             } catch (error) {
-                console.log(error)
             }
         }
     }
