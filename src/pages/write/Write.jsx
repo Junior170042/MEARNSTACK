@@ -38,7 +38,10 @@ export const Write = () => {
     }
     try {
       const res = await axios.post(baseUrl + "/post", newPost);
-      window.location.replace("/single/" + res.data._id)
+      if (res) {
+
+        window.location.replace("/")
+      }
     } catch (error) {
 
     }
