@@ -5,9 +5,9 @@ import { Context } from "../../context/Context";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { ErrorServer } from "../errorServer/ErrorServer";
+import { baseUrl } from "../../baseUrl";
 
 export const Setting = () => {
-
   const path = "https://blogappbackend-zutg.onrender.com/images/";
   const { user, dispatch } = useContext(Context);
   const [file, setFile] = useState(null);
@@ -89,7 +89,7 @@ export const Setting = () => {
         updatedUser.picture = fileName;
 
         try {
-          await axios.post("/api/upload", data)
+          await axios.post(baseUrl + "/upload", data)
         } catch (error) {
 
         }
@@ -97,11 +97,11 @@ export const Setting = () => {
 
       //updating the username in every post where the username is changed
       try {
-        await axios.post("/api/post/update_many", {
+        await axios.post(baseUrl + "/post/update_many", {
           old: user.username, newUser: username
         })
         //sending datas to the server for updating
-        const res = await axios.put("/api/user/" + user._id, updatedUser);
+        const res = await axios.put(baseUrl + "/user/" + user._id, updatedUser);
         console.log(res.data.errors)
         dispatch({ type: "UPDATE_SUCCESS", payload: await res.data })
 

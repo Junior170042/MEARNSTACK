@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./register.css";
 import axios from "axios";
 import { HandleRegister } from "./HandleRegister";
+import { baseUrl } from "../../baseUrl";
 export const Register = () => {
 
   const [username, setUser] = useState('');
@@ -35,7 +36,7 @@ export const Register = () => {
 
       //data should be validated first
       try {
-        const res = await axios.post("/api/auth/register", {
+        const res = await axios.post(baseUrl + "/auth/register", {
           username, email, password
         });
         res && window.location.replace("/login");

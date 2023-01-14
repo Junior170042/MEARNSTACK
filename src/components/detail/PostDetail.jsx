@@ -4,6 +4,7 @@ import "./postDetail.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
+import { baseUrl } from "../../baseUrl";
 //import { useLocation } from "react-router-dom";
 export const PostDetail = ({ post_id }) => {
   const [post, setPost] = useState({});
@@ -13,7 +14,6 @@ export const PostDetail = ({ post_id }) => {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const [editMode, setEditMode] = useState(false);
-
   /*
   wse can get the id from the url in the location object
   const location = useLocation();
@@ -22,7 +22,7 @@ export const PostDetail = ({ post_id }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("/api/post/" + post_id, { data: { username: user.username } })
+      await axios.delete(baseUrl + "/post/" + post_id, { data: { username: user.username } })
 
       setEditMode(false);
     } catch (error) {
@@ -31,7 +31,7 @@ export const PostDetail = ({ post_id }) => {
   }
   const handleUpdate = async () => {
     try {
-      await axios.put("/api/post/" + post_id, { username: user.username, title: title, description: desc })
+      await axios.put(baseUrl + "/post/" + post_id, { username: user.username, title: title, description: desc })
       window.location.reload();
     } catch (error) {
 
@@ -40,7 +40,7 @@ export const PostDetail = ({ post_id }) => {
 
   useEffect(() => {
     const getSinglePost = async () => {
-      const res = await axios.get("/api/post/" + post_id);
+      const res = await axios.get(baseUrl + "/post/" + post_id);
       setPost(res.data);
 
       setTitle(await res.data.title);

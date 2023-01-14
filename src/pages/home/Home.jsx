@@ -7,15 +7,15 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import SideBarPost from "../../components/sidebarpost/SideBarPost";
 import { Footer } from "../../components/foter/Footer";
+import { baseUrl } from "../../baseUrl";
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
   console.log(search);
-
   useEffect(() => {
     const getPost = async () => {
-      const resp = await axios.get('/api/post' + search, { sort: { timestamp: -1 } });
+      const resp = await axios.get(baseUrl + '/post' + search, { sort: { timestamp: -1 } });
       setPosts(resp.data);
     }
     getPost();

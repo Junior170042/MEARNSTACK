@@ -1,4 +1,5 @@
 import axios from "axios";
+import { baseUrl } from "../../baseUrl";
 export const HandleRegister = async (
     user,
     mail,
@@ -22,7 +23,7 @@ export const HandleRegister = async (
             errors.push({ type: errUser, message: "Username is in valid!" })
         } else {
             try {
-                const res = await axios.post("/api/auth/userExist", {
+                const res = await axios.post(baseUrl + "/auth/userExist", {
                     username: user
                 });
 
@@ -45,7 +46,7 @@ export const HandleRegister = async (
             errors.push({ type: errMail, message: "Please enter a valid email address!" })
         } else {
             try {
-                const res = await axios.post("/api/auth/emailExist", {
+                const res = await axios.post(baseUrl + "/auth/emailExist", {
                     email: mail
                 });
 

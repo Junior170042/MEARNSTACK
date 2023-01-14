@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { useEffect } from 'react';
 import "./style.css"
+import { baseUrl } from '../../baseUrl';
 const SideBarPost = () => {
-
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         const getPost = async () => {
-            const resp = await axios.get('/api/post', { sort: { timestamp: -1 } });
+            const resp = await axios.get(baseUrl + '/post', { sort: { timestamp: -1 } });
             setPosts(resp.data);
         }
         getPost();

@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "./login.css";
 //import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { baseUrl } from "../../baseUrl";
 export const Login = () => {
   const userRef = useRef();
   const pasRef = useRef();
@@ -22,7 +23,7 @@ export const Login = () => {
     dispatch({ type: "LOGIN_START" });
 
     try {
-      const res = await axios.post('/api/auth/login', {
+      const res = await axios.post(baseUrl + '/auth/login', {
         username: userRef.current.value,
         password: pasRef.current.value,
       }, { withCredentials: true })

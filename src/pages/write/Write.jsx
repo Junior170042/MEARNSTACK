@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./write.css";
 import { Context } from "../../context/Context";
 import axios from "axios";
+import { baseUrl } from "../../baseUrl";
 export const Write = () => {
   const { user } = useContext(Context);
   const path = "https://blogappbackend-zutg.onrender.com/images/";
@@ -30,13 +31,13 @@ export const Write = () => {
       newPost.photo = fileName;
 
       try {
-        await axios.post("/api/upload", data)
+        await axios.post(baseUrl + "/upload", data)
       } catch (error) {
 
       }
     }
     try {
-      const res = await axios.post("/api/post", newPost);
+      const res = await axios.post(baseUrl + "/post", newPost);
       window.location.replace("/single/" + res.data._id)
     } catch (error) {
 

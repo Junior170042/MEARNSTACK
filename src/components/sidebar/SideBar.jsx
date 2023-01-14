@@ -3,13 +3,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SwiperSide from "../swiper/SwiperSide";
+import { baseUrl } from "../../baseUrl";
 export const SideBar = ({ posts }) => {
 
   const [categories, setCat] = useState([]);
 
   useEffect(() => {
     const fetchCategory = async () => {
-      const res = await axios.get("/api/cat/");
+      const res = await axios.get(baseUrl + "/cat/");
 
       setCat(res.data);
     }
