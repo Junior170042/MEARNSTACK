@@ -44,5 +44,5 @@ app.use("/api/auth", authRoute);
 app.use("/api/cat", categoryRoute);
 
 app.listen(process.env.PORT, () => {
-  console.log("listening on port " + process.env.PORT);
+  console.log("listening on port " + process.env.PORT || 5000);
 });
