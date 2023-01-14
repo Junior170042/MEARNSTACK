@@ -23,7 +23,7 @@ export const Login = () => {
     dispatch({ type: "LOGIN_START" });
 
     try {
-      const res = await axios.post(baseUrl + '/auth/login', {
+      const res = await axios.post(baseUrl + '/api/auth/login', {
         username: userRef.current.value,
         password: pasRef.current.value,
       }, { withCredentials: true })

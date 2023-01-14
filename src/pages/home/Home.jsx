@@ -15,7 +15,7 @@ export const Home = () => {
   console.log(search);
   useEffect(() => {
     const getPost = async () => {
-      const resp = await axios.get(baseUrl + '/post' + search, { sort: { timestamp: -1 } });
+      const resp = await axios.get(baseUrl + '/api/post/' + search, { sort: { timestamp: -1 } });
       setPosts(resp.data);
     }
     getPost();

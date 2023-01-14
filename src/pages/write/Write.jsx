@@ -31,13 +31,13 @@ export const Write = () => {
       newPost.photo = fileName;
 
       try {
-        await axios.post(baseUrl + "/upload", data)
+        await axios.post(baseUrl + "/api/upload", data)
       } catch (error) {
 
       }
     }
     try {
-      const res = await axios.post(baseUrl + "/post", newPost);
+      const res = await axios.post(baseUrl + "/api/post", newPost);
       window.location.replace("/single/" + res.data._id)
     } catch (error) {
 

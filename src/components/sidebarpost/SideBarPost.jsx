@@ -8,7 +8,7 @@ const SideBarPost = () => {
 
     useEffect(() => {
         const getPost = async () => {
-            const resp = await axios.get(baseUrl + '/post', { sort: { timestamp: -1 } });
+            const resp = await axios.get(baseUrl + '/api/post', { sort: { timestamp: -1 } });
             setPosts(resp.data);
         }
         getPost();

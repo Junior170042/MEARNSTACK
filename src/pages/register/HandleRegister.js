@@ -23,7 +23,7 @@ export const HandleRegister = async (
             errors.push({ type: errUser, message: "Username is in valid!" })
         } else {
             try {
-                const res = await axios.post(baseUrl + "/auth/userExist", {
+                const res = await axios.post(baseUrl + "/api/auth/userExist", {
                     username: user
                 });
 
@@ -46,7 +46,7 @@ export const HandleRegister = async (
             errors.push({ type: errMail, message: "Please enter a valid email address!" })
         } else {
             try {
-                const res = await axios.post(baseUrl + "/auth/emailExist", {
+                const res = await axios.post(baseUrl + "/api/auth/emailExist", {
                     email: mail
                 });
 
