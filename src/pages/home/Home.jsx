@@ -12,10 +12,10 @@ import { baseUrl } from "../../baseUrl";
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
-  console.log(search);
+  console.log(baseUrl);
   useEffect(() => {
     const getPost = async () => {
-      const resp = await axios.get(baseUrl + '/api/post/' + search, { sort: { timestamp: -1 } });
+      const resp = await axios.get(baseUrl + '/post' + search, { sort: { timestamp: -1 } });
       setPosts(resp.data);
     }
     getPost();

@@ -36,7 +36,7 @@ export const Register = () => {
 
       //data should be validated first
       try {
-        const res = await axios.post(baseUrl + "/api/auth/register", {
+        const res = await axios.post(baseUrl + "/auth/register", {
           username, email, password
         });
         res && window.location.replace("/login");

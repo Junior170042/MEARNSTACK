@@ -10,7 +10,7 @@ export const SideBar = ({ posts }) => {
 
   useEffect(() => {
     const fetchCategory = async () => {
-      const res = await axios.get(baseUrl + "/api/cat/");
+      const res = await axios.get(baseUrl + "/cat");
 
       setCat(res.data);
     }
