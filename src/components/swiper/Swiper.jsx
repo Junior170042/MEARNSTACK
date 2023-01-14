@@ -10,7 +10,7 @@ import { Autoplay } from "swiper";
 import { EffectCards } from "swiper";
 
 export const SwiperDemo = ({ posts }) => {
-    const path = "http://localhost:5000/images/";
+    const path = "https://blogappbackend-zutg.onrender.com/images/";
     return (
         <>
             <Swiper

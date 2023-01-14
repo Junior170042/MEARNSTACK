@@ -8,7 +8,7 @@ import { useContext } from "react";
 export const PostDetail = ({ post_id }) => {
   const [post, setPost] = useState({});
   const { user } = useContext(Context);
-  const path = "http://localhost:5000/images/";
+  const path = "https://blogappbackend-zutg.onrender.com/images/";
 
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
@@ -22,7 +22,7 @@ export const PostDetail = ({ post_id }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("/post/" + post_id, { data: { username: user.username } })
+      await axios.delete("/api/post/" + post_id, { data: { username: user.username } })
 
       setEditMode(false);
     } catch (error) {
@@ -31,7 +31,7 @@ export const PostDetail = ({ post_id }) => {
   }
   const handleUpdate = async () => {
     try {
-      await axios.put("/post/" + post_id, { username: user.username, title: title, description: desc })
+      await axios.put("/api/post/" + post_id, { username: user.username, title: title, description: desc })
       window.location.reload();
     } catch (error) {
 
@@ -40,7 +40,7 @@ export const PostDetail = ({ post_id }) => {
 
   useEffect(() => {
     const getSinglePost = async () => {
-      const res = await axios.get("/post/" + post_id);
+      const res = await axios.get("/api/post/" + post_id);
       setPost(res.data);
 
       setTitle(await res.data.title);

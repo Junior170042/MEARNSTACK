@@ -4,7 +4,7 @@ import { Context } from "../../context/Context";
 import axios from "axios";
 export const Write = () => {
   const { user } = useContext(Context);
-  const path = "http://localhost:5000/images/";
+  const path = "https://blogappbackend-zutg.onrender.com/images/";
 
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
@@ -30,13 +30,13 @@ export const Write = () => {
       newPost.photo = fileName;
 
       try {
-        await axios.post("/upload", data)
+        await axios.post("/api/upload", data)
       } catch (error) {
 
       }
     }
     try {
-      const res = await axios.post("/post", newPost);
+      const res = await axios.post("/api/post", newPost);
       window.location.replace("/single/" + res.data._id)
     } catch (error) {
 

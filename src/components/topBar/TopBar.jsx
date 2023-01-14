@@ -12,7 +12,7 @@ export const TopBar = () => {
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
   }
 
-  const path = "http://localhost:5000/images/";
+  const path = "https://blogappbackend-zutg.onrender.com/images/";
   const { user, dispatch } = useContext(Context);
 
   const logout = () => {

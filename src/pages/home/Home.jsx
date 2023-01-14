@@ -11,10 +11,11 @@ import { Footer } from "../../components/foter/Footer";
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
+  console.log(search);
 
   useEffect(() => {
     const getPost = async () => {
-      const resp = await axios.get('/post' + search, { sort: { timestamp: -1 } });
+      const resp = await axios.get('/api/post' + search, { sort: { timestamp: -1 } });
       setPosts(resp.data);
     }
     getPost();

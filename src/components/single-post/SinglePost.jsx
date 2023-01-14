@@ -2,7 +2,7 @@ import "./singlePost.css";
 import { Link } from "react-router-dom";
 export const SinglePost = ({ post }) => {
 
-  const path = "http://localhost:5000/images/";
+  const path = "https://blogappbackend-zutg.onrender.com/images/";
   return (
     <>
 

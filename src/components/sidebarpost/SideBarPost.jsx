@@ -8,13 +8,13 @@ const SideBarPost = () => {
 
     useEffect(() => {
         const getPost = async () => {
-            const resp = await axios.get('/post', { sort: { timestamp: -1 } });
+            const resp = await axios.get('/api/post', { sort: { timestamp: -1 } });
             setPosts(resp.data);
         }
         getPost();
     }, [])
 
-    const path = "http://localhost:5000/images/";
+    const path = "https://blogappbackend-zutg.onrender.com/images/";
 
     return (
         <>

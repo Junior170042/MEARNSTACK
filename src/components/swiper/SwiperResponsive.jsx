@@ -10,7 +10,7 @@ import "./swiperStyle.css";
 import { Autoplay, Pagination } from "swiper";
 
 export default function SwiperResponsive({ posts }) {
-    const path = "http://localhost:5000/images/";
+    const path = "https://blogappbackend-zutg.onrender.com/images/";
     return (
         <>
             <Swiper
