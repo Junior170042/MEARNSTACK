@@ -1,8 +1,13 @@
 .single {
     display: flex;
+    width: 100%;
 }
 
-.single h1 {
+.single .swiperSideContent {
+    display: none;
+}
+
+h1.singleText {
     text-align: center;
     padding: 5px;
     font-size: 40px;

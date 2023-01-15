@@ -9,8 +9,8 @@ export const SinglePage = () => {
   const { id } = useParams();
   return (
     <>
+      <h1 className="singleText">Post informations</h1>
       <div className="single">
-        <h1>Post informations</h1>
         <PostDetail post_id={id} />
         <SideBar />
       </div>
