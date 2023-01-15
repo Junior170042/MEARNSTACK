@@ -11,6 +11,7 @@ import { useCookies } from 'react-cookie';
 import axios from "axios";
 import { Context } from "./context/Context";
 import "react-toastify/dist/ReactToastify.css";
+import { baseUrl } from "./baseUrl";
 function App() {
 
   const [cookies] = useCookies([]);
@@ -22,7 +23,7 @@ function App() {
       if (!cookies.jwt) {
         dispatch({ type: "LOGIN_FAILURE" });
       } else {
-        const { data } = await axios.post("/user/token", {}, { withCredentials: true })
+        const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
         if (data.status) {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
         } else {
