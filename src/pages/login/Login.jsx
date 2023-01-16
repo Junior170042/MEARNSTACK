@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { setCookie } from "redux-cookie";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
@@ -34,7 +33,6 @@ export const Login = () => {
           position: toast.POSITION.TOP_CENTER
         });
       } else {
-        setCookie("jwt", res.data.user);
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user })
 
       }
