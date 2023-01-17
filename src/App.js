@@ -16,7 +16,7 @@ function App() {
 
   const [cookies] = useCookies([]);
   const { user, dispatch } = useContext(Context);
-  const idUser = JSON.parse(localStorage.getItem("token"))
+  const idUser = localStorage.getItem("token");
   useEffect(() => {
     const verify = async () => {
       if (idUser) {
