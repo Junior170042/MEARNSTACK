@@ -16,9 +16,23 @@ function App() {
 
   const [cookies] = useCookies([]);
   const { user, dispatch } = useContext(Context);
-  const idUser = JSON.parse(localStorage.getItem("token")).split("/")[1];
+  const idUser = JSON.parse(localStorage.getItem("token"))
   useEffect(() => {
+    const getSaveUser = async () => {
 
+      if (idUser) {
+        const id = idUser.split("/")[1];
+        const { data } = await axios.get(baseUrl + `/user/${id}`);
+        console.log(data);
+        if (data) {
+          dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
+        }
+      }
+    }
+    getSaveUser()
+
+  }, [idUser, dispatch])
+  useEffect(() => {
     const verify = async () => {
 
       if (!cookies.jwt) {
@@ -28,21 +42,13 @@ function App() {
         if (data.status) {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
 
-          if (idUser) {
-
-            const { data } = await axios.get(baseUrl + `/user/${idUser}`);
-            if (data) {
-              dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
-            }
-          }
-
         } else {
           dispatch({ type: "LOGIN_FAILURE" });
         }
       }
     }
 
-    verify();
+    //verify();
 
   }, [cookies, idUser, dispatch])
 
