@@ -26,6 +26,12 @@ function App() {
         const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
         if (data.status) {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
+        } else if (localStorage.getItem("token")) {
+          const idUser = JSON.parse(localStorage.getItem("token")).split("/")[1];
+          const { data } = await axios.get(baseUrl + `/user/${idUser}`);
+          if (data) {
+            dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
+          }
         } else {
           dispatch({ type: "LOGIN_FAILURE" });
         }

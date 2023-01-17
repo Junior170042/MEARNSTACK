@@ -17,7 +17,7 @@ export const TopBar = () => {
 
   const logout = () => {
     deleteCookie('jwt', '', 0);
-
+    localStorage.removeItem('token');
     dispatch({ type: "LOGOUT" });
     window.location.replace("/");
 
