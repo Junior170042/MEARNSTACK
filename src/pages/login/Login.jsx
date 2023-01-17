@@ -33,7 +33,7 @@ export const Login = () => {
           position: toast.POSITION.TOP_CENTER
         });
       } else {
-        const _idParser = Date.now() + "/" + res.data.user._id;
+        const _idParser = Date.now() + `/${res.data.user._id}`;
         localStorage.setItem("token", JSON.stringify(_idParser));
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user })
 
