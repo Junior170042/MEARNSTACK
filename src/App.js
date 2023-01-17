@@ -20,8 +20,8 @@ function App() {
   useEffect(() => {
     const verify = async () => {
       if (idUser) {
-        const id = idUser.split("/")[1];
-        const { data } = await axios.get(baseUrl + `/user/${id}`);
+        //const id = idUser.split("/")[1];
+        const { data } = await axios.get(baseUrl + `/user/63aa3d337e61a28b30776661`);
         console.log(data);
         if (data) {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
