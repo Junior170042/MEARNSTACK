@@ -21,7 +21,7 @@ function App() {
     const verify = async () => {
       if (idUser) {
         const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
-        if (data.status) {
+        if (data) {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
           return
 
