@@ -19,8 +19,9 @@ function App() {
   const idUser = localStorage.getItem("token");
   useEffect(() => {
     const verify = async () => {
-      if (idUser || cookies.jwt) {
-        const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
+      if (idUser) {
+        const id = JSON.parse(idUser).split("/")[1];
+        const { data } = await axios.post(baseUrl + "/user/" + id)
         if (data) {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
           return
