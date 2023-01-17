@@ -23,6 +23,7 @@ function App() {
         const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
         if (data.status) {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
+          return
 
         }
       } else {
@@ -46,7 +47,7 @@ function App() {
 
     verify();
 
-  }, [cookies, idUser, dispatch])
+  }, [idUser, cookies, dispatch])
 
   return (
     <>
