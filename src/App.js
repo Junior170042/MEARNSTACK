@@ -18,21 +18,6 @@ function App() {
   const { user, dispatch } = useContext(Context);
   const idUser = JSON.parse(localStorage.getItem("token"))
   useEffect(() => {
-    const getSaveUser = async () => {
-
-      if (idUser) {
-        const id = idUser.split("/")[1];
-        const { data } = await axios.get(baseUrl + `/user/${id}`);
-        console.log(data);
-        if (data) {
-          dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
-        }
-      }
-    }
-    getSaveUser()
-
-  }, [idUser, dispatch])
-  useEffect(() => {
     const verify = async () => {
 
       if (!cookies.jwt) {
@@ -43,7 +28,18 @@ function App() {
           dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
 
         } else {
-          dispatch({ type: "LOGIN_FAILURE" });
+
+          if (idUser) {
+            const id = idUser.split("/")[1];
+            const { data } = await axios.get(baseUrl + `/user/${id}`);
+            console.log(data);
+            if (data) {
+              dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
+            }
+          } else {
+
+            dispatch({ type: "LOGIN_FAILURE" });
+          }
         }
       }
     }
