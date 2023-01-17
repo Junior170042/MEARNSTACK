@@ -48,7 +48,7 @@ function App() {
       }
     }
 
-    //verify();
+    verify();
 
   }, [cookies, idUser, dispatch])
 
