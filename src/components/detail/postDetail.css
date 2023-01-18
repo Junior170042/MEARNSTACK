@@ -110,6 +110,14 @@
     font-weight: 300;
 }
 
+.detail-content .load-container {
+    flex: 9;
+}
+
+.detail-content .load-img {
+    width: 100%;
+}
+
 @media screen and (max-width:1300px) {
     .detail-text {
         font-size: 22px;

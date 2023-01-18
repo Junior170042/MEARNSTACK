@@ -19,29 +19,21 @@ function App() {
   const idUser = localStorage.getItem("token");
   useEffect(() => {
     const verify = async () => {
-      if (idUser) {
-        const id = JSON.parse(idUser).split("/")[1];
-        const { data } = await axios.post(baseUrl + "/user/" + id)
-        if (data) {
-          dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
-          return
 
-        }
+      if (!cookies.jwt) {
+        dispatch({ type: "LOGIN_FAILURE" });
       } else {
-        if (!cookies.jwt) {
-          dispatch({ type: "LOGIN_FAILURE" });
+        const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
+        if (data.status) {
+          dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
+
         } else {
-          const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
-          if (data.status) {
-            dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
 
-          } else {
-
-            dispatch({ type: "LOGIN_FAILURE" });
-          }
-
+          dispatch({ type: "LOGIN_FAILURE" });
         }
+
       }
+
 
 
     }

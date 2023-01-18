@@ -8,15 +8,18 @@ import { useLocation } from "react-router-dom";
 import SideBarPost from "../../components/sidebarpost/SideBarPost";
 import { Footer } from "../../components/foter/Footer";
 import { baseUrl } from "../../baseUrl";
+import Loading from "../../loading/Loading";
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(null)
   const { search } = useLocation();
-  console.log(baseUrl);
   useEffect(() => {
+    setLoading(true);
     const getPost = async () => {
       const resp = await axios.get(baseUrl + '/post' + search, { sort: { timestamp: -1 } });
       setPosts(resp.data);
+      setLoading(null)
     }
     getPost();
 
@@ -27,6 +30,16 @@ export const Home = () => {
       <Header posts={posts} />
       <div className="home" >
         <h1 className="head-titles">Our news later!</h1>
+        {
+
+          loading && <Loading />
+        }
+        {
+
+          loading && <Loading />
+        }
+
+
         <Post posts={posts} />
         <div className={!search ? "flex-side" : "home-side"}>
           <SideBar posts={posts} />
