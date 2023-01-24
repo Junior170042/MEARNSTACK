@@ -91,7 +91,7 @@ export const Register = () => {
         <p className="errRepass error hide" id="repass"></p>
         <button className="register-button" type="submit">Register</button>
       </form>
-      <button className="btn-register">
+      <button className="btnToLogin">
         <Link to="/login" className="link">
           Login
         </Link>

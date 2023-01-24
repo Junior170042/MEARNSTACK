@@ -1,9 +1,8 @@
 .login {
     min-height: calc(100vh - 50px);
-    min-width: 100%;
+    min-width: 103%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("./login.svg");
     background-size: cover;
@@ -11,6 +10,7 @@
 }
 
 .login-title {
+    margin-top: 50px;
     font-size: 50px;
     font-family: serif;
 }
@@ -56,13 +56,13 @@
     color: #000;
 }
 
-.btn-register {
+.btnToRegister {
     color: #fff;
     background: teal;
     border-radius: 8px;
     border: none;
     position: absolute;
-    top: 60px;
+    top: 80px;
     right: 30px;
     padding: 10px;
     cursor: pointer;

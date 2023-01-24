@@ -75,14 +75,14 @@ export const PostDetail = ({ post_id }) => {
           <h1 className="detail-title">
             {title}
 
-            {user?.username === post.username &&
-
-              loadMode ? "" :
+            {
+              user?.username === post.username
+              &&
+              !loadMode &&
               <div className="edit-container">
                 <i className="detail-icon fa-regular fa-pen-to-square" onClick={() => setEditMode(true)}></i>
                 <i className="detail-icon fa fa-trash" onClick={handleDelete}></i>
               </div>
-
             }
           </h1>
         )}

@@ -55,7 +55,7 @@ export const Login = () => {
             ref={pasRef} />
           <button className="btn-login" type="submit" disabled={isFitching}>Login</button>
         </form>
-        <button className="btn-register">
+        <button className="btnToRegister">
           <Link to="/register" className="link">
             Register
           </Link>
