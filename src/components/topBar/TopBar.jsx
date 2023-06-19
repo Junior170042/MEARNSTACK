@@ -4,20 +4,12 @@ import { Context } from "../../context/Context";
 import "./TopBar.css";
 
 export const TopBar = () => {
-
-  const deleteCookie = (name, value, expvalue) => {
-    var date = new Date();
-    date.setTime(date.getTime() + (expvalue * 60 * 1000));
-    var expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-  }
-
   const path = "https://blogappbackend-zutg.onrender.com/images/";
   const { user, dispatch } = useContext(Context);
 
   const logout = () => {
-    deleteCookie('jwt', '', 0);
-    localStorage.removeItem('token');
+    document.cookie = "isUser=;Expires=Thu, 01 Jan 1970 00:00:01 GMT;"
+
     dispatch({ type: "LOGOUT" });
     window.location.replace("/");
 

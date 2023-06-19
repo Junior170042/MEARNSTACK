@@ -8,35 +8,25 @@ import { TopBar } from "./components/topBar/TopBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { useCookies } from 'react-cookie';
-import axios from "axios";
 import { Context } from "./context/Context";
 import "react-toastify/dist/ReactToastify.css";
-import { baseUrl } from "./baseUrl";
 function App() {
 
-  const [cookies] = useCookies([]);
+  const [cookies] = useCookies();
   const { user, dispatch } = useContext(Context);
   useEffect(() => {
     const verify = async () => {
-
-      if (!cookies.jwt) {
-        dispatch({ type: "LOGIN_FAILURE" });
+      if (cookies.isUser) {
+        dispatch({ type: "LOGIN_SUCCESS", payload: cookies.isUser })
       } else {
-        const { data } = await axios.post(baseUrl + "/user/token", {}, { withCredentials: true })
-        if (data.status) {
-          dispatch({ type: "LOGIN_SUCCESS", payload: data.user })
-
-        } else {
-
-          dispatch({ type: "LOGIN_FAILURE" });
-        }
+        dispatch({ type: "LOGOUT" });
 
       }
     }
 
     verify();
 
-  }, [cookies, dispatch])
+  }, [cookies.isUser, dispatch])
 
   return (
     <>

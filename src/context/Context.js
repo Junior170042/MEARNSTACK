@@ -1,5 +1,6 @@
 import { createContext, useReducer, } from 'react';
 import Reducer from './Reducer';
+
 const INNITIAL_STATE = {
     user: null,
     isFitching: false,
