@@ -10,6 +10,7 @@ export const SinglePost = ({ post }) => {
 
         <img
           src={post.photo ? path + post.photo : path + "placeholder.png"}
+          loading="lazy"
           alt="Post"
           className="postImage"
         />

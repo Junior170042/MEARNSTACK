@@ -8,12 +8,14 @@ import { useLocation } from "react-router-dom";
 import SideBarPost from "../../components/sidebarpost/SideBarPost";
 import { Footer } from "../../components/foter/Footer";
 import { baseUrl } from "../../baseUrl";
-import Loading from "../../loading/Loading";
+import Spinner from "../../loading/Spinner";
+
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(null)
   const { search } = useLocation();
+
   useEffect(() => {
     setLoading(true);
     const getPost = async () => {
@@ -29,20 +31,14 @@ export const Home = () => {
     <>
       <Header posts={posts} />
       <div className="home" >
-        <h1 className="head-titles">Our news later!</h1>
         {
 
-          loading && <Loading />
+          loading && <div className="spinnerContent"><Spinner /></div>
         }
-        {
-
-          loading && <Loading />
-        }
-
-
-        <Post posts={posts} />
+        <Post posts={posts} loading={loading} />
         <div className={!search ? "flex-side" : "home-side"}>
-          <SideBar posts={posts} />
+          <SideBar posts={posts} loading={loading} />
+
 
           {
             posts.length !== 1 &&

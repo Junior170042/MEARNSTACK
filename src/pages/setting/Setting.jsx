@@ -1,5 +1,4 @@
 import "./setting.css";
-import { SideBar } from "../../components/sidebar/SideBar";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
@@ -15,13 +14,14 @@ export const Setting = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   const showMessage = (message) => {
     toast.error(message, {
       position: toast.POSITION.TOP_CENTER
     })
   }
 
-  const handleEdit = (user, mail, pass) => {
+  const handleEdit = (user, mail, pass, repass) => {
     let errors = "";
 
     const myMailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -51,6 +51,8 @@ export const Setting = () => {
     } else {
       if (pass.length < 5) {
         errors = "The password most be at least 5 characters!";
+      } else if (pass !== repass) {
+        errors = "The password doesn't match!";
       }
     }
 
@@ -66,7 +68,7 @@ export const Setting = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (handleEdit(e.target.user.value, e.target.mail.value, e.target.pass.value)) {
+    if (handleEdit(e.target.user.value, e.target.mail.value, e.target.pass.value, e.target.cpass.value)) {
 
       dispatch({ type: "UDATE_START" })
       const updatedUser = {
@@ -102,7 +104,6 @@ export const Setting = () => {
         })
         //sending datas to the server for updating
         const res = await axios.put(baseUrl + "/user/" + user._id, updatedUser);
-        console.log(res.data.errors)
         dispatch({ type: "UPDATE_SUCCESS", payload: await res.data })
 
         toast.success("User updated successfully!", {
@@ -136,7 +137,7 @@ export const Setting = () => {
               className="setting-img"
             />
             <label htmlFor="file-input">
-              <i className="setting-icon fa fa-user"></i>
+              <i className="setting-icon fa fa-plus"></i>
             </label>
             <input type="file" id="file-input" style={{ display: "none" }}
               onChange={(e) => setFile(e.target.files[0])} />
@@ -156,10 +157,15 @@ export const Setting = () => {
 
             name="pass"
             onChange={(e) => setPassword(e.target.value)} />
+          <label htmlFor="Cpassword">Confirm Password</label>
+          <input type="password" id="Cpassword" placeholder="Confirm password..."
+
+            name="cpass"
+            onChange={null} />
           <button className="btn-setting" type="submit">Update</button>
         </form>
       </div>
-      <SideBar />
+
       <ToastContainer />
     </div>
   );

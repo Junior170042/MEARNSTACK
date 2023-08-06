@@ -185,14 +185,20 @@ div.active .topLeft .leftIcon {
         min-width: 103%;
     }
 
+      .top .topRight .user-profile .link-image{
+        width: 90%;
+        position: relative;
+      }
+
     .top .topRight .user-profile .profileImg {
-        width: 40%;
+        width: 25%;
+     margin-left: -30px;
         height: 0%;
     }
 
     .top .topRight .user-profile p {
         font-size: 16px;
-        margin-left: -60px;
+        margin-left: -320px;
     }
 }
 
@@ -200,11 +206,33 @@ div.active .topLeft .leftIcon {
     .top {
         min-width: 104%;
     }
+
+    .top .topRight .user-profile .profileImg {
+        width: 30%;
+        margin-left: -30px;
+        height: 0%;
+    }
+
+    .top .topRight .user-profile p {
+        font-size: 16px;
+        margin-left: -280px;
+    }
 }
 
 @media screen and (max-width:280px) {
     .top {
         min-width: 105.5%;
         height: 180px;
+    }
+
+     .top .topRight .user-profile .profileImg {
+        width: 25%;
+        margin-left: -25px;
+        height: 0%;
+    }
+
+    .top .topRight .user-profile p {
+        font-size: 16px;
+        margin-left: -220px;
     }
 }

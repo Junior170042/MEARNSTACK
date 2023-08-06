@@ -55,7 +55,7 @@ export const TopBar = () => {
       <div className="topRight">
         {user ? (
           <div className="user-profile">
-            <Link to="/setting"><img
+            <Link className="link-image" to="/setting"><img
               className="profileImg "
               src={path + user.picture}
               alt="Profile"

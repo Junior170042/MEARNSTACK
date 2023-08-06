@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SwiperSide from "../swiper/SwiperSide";
 import { baseUrl } from "../../baseUrl";
-export const SideBar = ({ posts }) => {
+import Loading from "../../loading/Loading";
+export const SideBar = ({ posts, loading }) => {
 
   const [categories, setCat] = useState([]);
 
@@ -19,46 +20,51 @@ export const SideBar = ({ posts }) => {
   }, [])
   return (
     <>
-      <div className="side-bar">
-        <div className="sidebarItem">
-          <span className="sidebarTitle">Blog App Made With React & Node</span>
+      {loading ? <div className="side-bar">
+        <Loading />
+      </div> :
 
-        </div>
-        <div className="swiperSideContent">
+        <div className="side-bar">
 
-          <SwiperSide posts={posts} />
-        </div>
-        <div className="sidebarItem">
-          <p className="sidebarP">
-            Blog app made with React & Node, Node is used as backend for request like post, put,get, and delete. it's a basic application, user can add , delete and update post after being registered. Posts can be filtered by category.</p>
+          <div className="sidebarItem">
+            <span className="sidebarTitle">Blog App Made With React & Node</span>
 
-        </div>
-        <div className="sidebarItem sidebarCat">
-          <span className="sidebarTitle">CATEGORIES</span>
-          <ul className="sidebarList">
-            {categories.length > 0 && categories.map(cat => <Link to={"/?cat=" + cat.name} className="link" key={cat._id}>
-              <li className="sidbarListItem" >{cat.name}</li>
-            </Link>)}
-          </ul>
-        </div>
-        <div className="sidebarItem">
-          <span className="sidebarTitle">FALLOW US</span>
-          <div className="sidebarSocial">
-            <a className="link" href=" https://www.facebook.com/juniorhens.vernard" target="_blank">
-              <i className="sidebarIcon fa-brands fa-square-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/invites/contact/?i=1wvdpbesps17q&utm_content=o6xi1f0" className="link" target="_blank" rel="noopener noreferrer">
-              <i className="sidebarIcon fa-brands fa-square-instagram"></i>
+          </div>
+          <div className="swiperSideContent">
 
-            </a>
-            <a href="https://www.linkedin.com/in/st-verty-vernard/" className="link" target="_blank" rel="noopener noreferrer">
+            <SwiperSide posts={posts} />
+          </div>
+          <div className="sidebarItem">
+            <p className="sidebarP">
+              Blog app made with React & Node, Node is used as backend for request like post, put,get, and delete. it's a basic application, user can add , delete and update post after being registered. Posts can be filtered by category.</p>
 
-              <i className="sidebarIcon fa-brands fa-linkedin"></i>
-            </a>
+          </div>
+          <div className="sidebarItem sidebarCat">
+            <ul className="sidebarList">
+              <h6 className="sidebarTitle">CATEGORIES</h6>
+              {categories.length > 0 && categories.map(cat => <Link to={"/?cat=" + cat.name} className="link" key={cat._id}>
+                <li className="sidbarListItem" >{cat.name}</li>
+              </Link>)}
+            </ul>
+          </div>
+          <div className="sidebarItem">
+            <span className="sidebarTitle">FALLOW US</span>
+            <div className="sidebarSocial">
+              <a className="link" href=" https://www.facebook.com/juniorhens.vernard" target="_blank">
+                <i className="sidebarIcon fa-brands fa-square-facebook"></i>
+              </a>
+              <a href="https://www.instagram.com/invites/contact/?i=1wvdpbesps17q&utm_content=o6xi1f0" className="link" target="_blank" rel="noopener noreferrer">
+                <i className="sidebarIcon fa-brands fa-square-instagram"></i>
+
+              </a>
+              <a href="https://www.linkedin.com/in/st-verty-vernard/" className="link" target="_blank" rel="noopener noreferrer">
+
+                <i className="sidebarIcon fa-brands fa-linkedin"></i>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-
+      }
     </>
   );
 };

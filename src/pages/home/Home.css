@@ -5,6 +5,14 @@ h1.head-titles {
     display: none;
 }
 
+.home .spinnerContent{
+   position:absolute;
+   width: 100%;
+   text-align: center;
+   padding: 20px;
+   margin-bottom: 40px;
+}
+
 .home {
     display: flex;
 }
@@ -97,5 +105,12 @@ h1.head-titles {
 @media screen and (max-width:540px) {
     .home {
         flex-direction: column;
+    }
+
+    .home .spinnerContent{
+        min-height: 300px;
+        width: 100%;
+        height: 400px;
+        position: absolute;
     }
 }
