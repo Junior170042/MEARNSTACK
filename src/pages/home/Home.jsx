@@ -14,14 +14,21 @@ import Spinner from "../../loading/Spinner";
 export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(null)
+  const [error, setError] = useState(null)
   const { search } = useLocation();
 
   useEffect(() => {
     setLoading(true);
     const getPost = async () => {
-      const resp = await axios.get(baseUrl + '/post' + search, { sort: { timestamp: -1 } });
-      setPosts(resp.data);
-      setLoading(null)
+      try {
+        const resp = await axios.get(baseUrl + '/post' + search, { sort: { timestamp: -1 } });
+        setPosts(resp.data);
+        setLoading(null)
+      } catch (error) {
+        setLoading(null)
+        setError(true)
+      }
+
     }
     getPost();
 
@@ -29,13 +36,13 @@ export const Home = () => {
 
   return (
     <>
-      <Header posts={posts} />
+      <Header posts={posts} loading={loading} />
       <div className="home" >
         {
 
           loading && <div className="spinnerContent"><Spinner /></div>
         }
-        <Post posts={posts} loading={loading} />
+        <Post posts={posts} error={error} loading={loading} />
         <div className={!search ? "flex-side" : "home-side"}>
           <SideBar posts={posts} loading={loading} />
 

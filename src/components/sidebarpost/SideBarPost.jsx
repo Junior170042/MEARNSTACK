@@ -2,24 +2,30 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { useEffect } from 'react';
 import "./style.css"
-import { baseUrl } from '../../baseUrl';
+import { baseUrl, imagePath } from '../../baseUrl';
 import Loading from '../../loading/Loading';
 const SideBarPost = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
 
         const getPost = async () => {
-            setLoading(true)
-            const resp = await axios.get(baseUrl + '/post', { sort: { timestamp: -1 } });
-            setPosts(resp.data);
-            setLoading(false);
+            try {
+                setLoading(true)
+                const resp = await axios.get(baseUrl + '/post', { sort: { timestamp: -1 } });
+                setPosts(resp.data);
+                setLoading(false);
+            } catch (error) {
+                setLoading(false);
+                setError(true)
+            }
         }
         getPost();
     }, [])
 
-    const path = "https://blogappbackend-zutg.onrender.com/images/";
+
 
     return (
         <>
@@ -32,7 +38,7 @@ const SideBarPost = () => {
                             <div className="sidebarItem">
                                 <h2 className="side-title">{post.title}</h2>
                                 <img
-                                    src={post.photo ? path + post.photo : path + "placeholder.png"}
+                                    src={post.photo ? imagePath + post.photo : imagePath + "placeholder.png"}
                                     alt="Man"
                                     className="sidePostImg"
                                 />
@@ -46,6 +52,8 @@ const SideBarPost = () => {
                     ))}
                 </div>
             }
+
+            {error && <div className="sidePostContainer"><h2>Some issues has been found! Please try to connect later.</h2></div>}
         </>
     )
 }

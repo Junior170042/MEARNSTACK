@@ -42,7 +42,13 @@
     width: 50%;
     padding: 14px;
     margin: 14px;
+    
     margin-top: 40px;
+}
+
+.headerImg.noSwiper .header-text {
+    width: 100%;
+    text-align: center;
 }
 
 .headerImg .header-text h1 {

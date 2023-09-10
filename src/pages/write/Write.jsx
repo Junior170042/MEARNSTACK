@@ -2,11 +2,9 @@ import { useContext, useState } from "react";
 import "./write.css";
 import { Context } from "../../context/Context";
 import axios from "axios";
-import { baseUrl } from "../../baseUrl";
+import { baseUrl, imagePath } from "../../baseUrl";
 export const Write = () => {
   const { user } = useContext(Context);
-  const path = "https://blogappbackend-zutg.onrender.com/images/";
-
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
@@ -54,7 +52,7 @@ export const Write = () => {
     <div className="write">
       <h1 className="post-title">Add New Post</h1>
       <img
-        src={file ? URL.createObjectURL(file) : path + "placeholder.png"}
+        src={file ? URL.createObjectURL(file) : imagePath + "placeholder.png"}
         alt="Post-img"
         className="write-img"
       />

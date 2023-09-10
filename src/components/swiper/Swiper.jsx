@@ -8,9 +8,10 @@ import { Autoplay } from "swiper";
 
 // import required modules
 import { EffectCards } from "swiper";
+import { imagePath } from '../../baseUrl';
 
 export const SwiperDemo = ({ posts }) => {
-    const path = "https://blogappbackend-zutg.onrender.com/images/";
+
     return (
         <>
             <Swiper
@@ -24,7 +25,7 @@ export const SwiperDemo = ({ posts }) => {
                 className="mySwiper"
             >
                 {posts.length > 0 && posts.map(post => <SwiperSlide key={post._id}>
-                    <img src={post.photo ? path + post.photo : path + "placeholder.png"}
+                    <img src={post.photo ? imagePath + post.photo : imagePath + "placeholder.png"}
                         className="swiper-img"
                         alt="swiperImg"
                     />

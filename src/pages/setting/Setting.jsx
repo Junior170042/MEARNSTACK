@@ -4,10 +4,9 @@ import { Context } from "../../context/Context";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { ErrorServer } from "../errorServer/ErrorServer";
-import { baseUrl } from "../../baseUrl";
+import { baseUrl, imagePath } from "../../baseUrl";
 
 export const Setting = () => {
-  const path = "https://blogappbackend-zutg.onrender.com/images/";
   const { user, dispatch } = useContext(Context);
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState("");
@@ -132,7 +131,7 @@ export const Setting = () => {
           <label>Profile picture</label>
           <div className="setting-profile">
             <img
-              src={file ? URL.createObjectURL(file) : path + user.picture}
+              src={file ? URL.createObjectURL(file) : imagePath + user.picture}
               alt="Profile"
               className="setting-img"
             />

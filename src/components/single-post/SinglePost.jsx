@@ -1,15 +1,17 @@
+import { imagePath } from "../../baseUrl";
 import "./singlePost.css";
 import { Link } from "react-router-dom";
 export const SinglePost = ({ post }) => {
 
-  const path = "https://blogappbackend-zutg.onrender.com/images/";
   return (
     <>
 
       <div className="singlePost">
 
+
+
         <img
-          src={post.photo ? path + post.photo : path + "placeholder.png"}
+          src={post.photo ? imagePath + post.photo : imagePath + "placeholder.png"}
           loading="lazy"
           alt="Post"
           className="postImage"
