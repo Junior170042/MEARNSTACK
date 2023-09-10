@@ -41,7 +41,7 @@ export const Write = () => {
       data.append("file", file);
 
       try {
-        const data = await axios.post(baseUrl + "post/upload/file", data)
+        const data = await axios.post(baseUrl + "/post/upload/file", data)
         newPost.photo = data.secure_url
 
         await handlePost(newPost)
