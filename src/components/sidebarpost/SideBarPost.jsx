@@ -36,7 +36,7 @@ const SideBarPost = () => {
                             <div className="sidebarItem">
                                 <h2 className="side-title">{post.title}</h2>
                                 <img
-                                    src={post.photo ? imagePath + post.photo : imagePath + "placeholder.png"}
+                                    src={post.photo ? post.photo : ""}
                                     alt="Man"
                                     className="sidePostImg"
                                 />

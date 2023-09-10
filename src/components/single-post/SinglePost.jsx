@@ -1,4 +1,4 @@
-import { imagePath } from "../../baseUrl";
+
 import "./singlePost.css";
 import { Link } from "react-router-dom";
 export const SinglePost = ({ post }) => {
@@ -11,7 +11,7 @@ export const SinglePost = ({ post }) => {
 
 
         <img
-          src={post.photo ? imagePath + post.photo : imagePath + "placeholder.png"}
+          src={post.photo ? post.photo : ""}
           loading="lazy"
           alt="Post"
           className="postImage"

@@ -10,6 +10,20 @@ export const Write = () => {
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("Other");
 
+  const handlePost = async (datos) => {
+    try {
+
+      const res = await axios.post(baseUrl + "/post", datos);
+      if (res) {
+
+        window.location.replace("/")
+        return
+      }
+    } catch (error) {
+
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
@@ -29,21 +43,16 @@ export const Write = () => {
       try {
         const data = await axios.post(baseUrl + "post/upload/file", data)
         newPost.photo = data.secure_url
+
+        await handlePost(newPost)
       } catch (error) {
 
       }
+    } else {
+
+      await handlePost(newPost)
     }
 
-    try {
-
-      const res = await axios.post(baseUrl + "/post", newPost);
-      if (res) {
-
-        window.location.replace("/")
-      }
-    } catch (error) {
-
-    }
 
 
 

@@ -8,7 +8,6 @@ import "./swiperStyle.css";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper";
-import { imagePath } from "../../baseUrl";
 
 export default function SwiperResponsive({ posts }) {
     return (
@@ -23,7 +22,7 @@ export default function SwiperResponsive({ posts }) {
                 className={posts.length === 1 ? "singleSwiper" : "swiperResponsive"}>
 
                 {posts.length > 0 && posts.map(post => <SwiperSlide key={post._id}>
-                    <img src={post.photo ? imagePath + post.photo : imagePath + "placeholder.png"}
+                    <img src={post.photo ? post.photo : ""}
                         className="swiperResImg"
                         alt="swiperImg"
                     />

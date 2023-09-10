@@ -4,13 +4,12 @@ import "./postDetail.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { baseUrl, imagePath } from "../../baseUrl";
+import { baseUrl } from "../../baseUrl";
 import Loading from "../../loading/Loading";
 //import { useLocation } from "react-router-dom";
 export const PostDetail = ({ post_id }) => {
   const [post, setPost] = useState({});
   const { user } = useContext(Context);
-  const path = imagePath;
 
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
@@ -64,7 +63,7 @@ export const PostDetail = ({ post_id }) => {
       <div className="detail-content">
         {loadMode ? <Loading /> :
           <img
-            src={post.photo ? path + post.photo : path + "placeholder.png"}
+            src={post.photo ? post.photo : ""}
             alt="detail"
             className="detailImg"
           />}
