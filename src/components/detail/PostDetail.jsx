@@ -26,8 +26,8 @@ export const PostDetail = ({ post_id }) => {
 
     try {
       await axios.delete(baseUrl + "/post/" + post_id, { data: { username: user.username } })
-
       setEditMode(false);
+      window.location.replace("/")
 
     } catch (error) {
 
