@@ -38,7 +38,7 @@ export const Write = () => {
       const fileName = Date.now() + file.name;
 
       data.append("name", fileName);
-      data.append("file", file);
+      data.append("image", file);
 
       try {
         const data = await axios.post(baseUrl + "/post/upload/file", data)
