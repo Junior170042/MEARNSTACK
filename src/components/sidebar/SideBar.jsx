@@ -24,7 +24,7 @@ export const SideBar = ({ posts, loading }) => {
         <Loading />
       </div> :
 
-        <div className="side-bar">
+        <div className={`side-bar ${posts.length === 0 && "noSidebar"}`}>
 
           <div className="sidebarItem">
             <span className="sidebarTitle">Blog App Made With React & Node</span>

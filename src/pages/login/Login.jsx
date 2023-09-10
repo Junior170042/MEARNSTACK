@@ -41,6 +41,10 @@ export const Login = () => {
       }
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE" })
+
+      return toast.error("Sorry, we can not process your request at this moment! Try later", {
+        position: toast.POSITION.TOP_CENTER
+      })
     }
   }
   return (

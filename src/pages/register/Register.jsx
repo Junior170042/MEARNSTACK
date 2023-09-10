@@ -4,6 +4,7 @@ import "./register.css";
 import axios from "axios";
 import { HandleRegister } from "./HandleRegister";
 import { baseUrl } from "../../baseUrl";
+import { ToastContainer, toast } from "react-toastify";
 export const Register = () => {
 
   const [username, setUser] = useState('');
@@ -41,6 +42,10 @@ export const Register = () => {
         });
         res && window.location.replace("/login");
       } catch (error) {
+
+        return toast.error("Sorry, we can not process your request at this moment! Try later", {
+          position: toast.POSITION.TOP_CENTER
+        })
       }
 
     }
@@ -96,6 +101,8 @@ export const Register = () => {
           Login
         </Link>
       </button>
+
+      <ToastContainer />
     </div>
   );
 };

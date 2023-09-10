@@ -7,7 +7,6 @@ import Loading from '../../loading/Loading';
 const SideBarPost = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
 
@@ -19,7 +18,6 @@ const SideBarPost = () => {
                 setLoading(false);
             } catch (error) {
                 setLoading(false);
-                setError(true)
             }
         }
         getPost();
@@ -53,7 +51,6 @@ const SideBarPost = () => {
                 </div>
             }
 
-            {error && <div className="sidePostContainer"><h2>Some issues has been found! Please try to connect later.</h2></div>}
         </>
     )
 }

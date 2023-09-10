@@ -1,3 +1,7 @@
+ .flex-side .side-bar.noSidebar{
+    display: none;
+ }
+ 
  .flex-side .side-bar {
      background-color: #fdfbfb;
      margin-right: 20px;

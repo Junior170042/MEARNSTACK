@@ -9,7 +9,7 @@ export const Post = ({ posts, loading, error }) => {
         {posts.map(p => <SinglePost key={p._id} post={p} />)}
       </div>
 
-      {error && <div className="no-fetch"><h1>Sorry, We can not any post! Try later.</h1></div>}
+      {error && <div className="no-fetch"><h1>Sorry, We can not find any post in this moment! Try later.</h1></div>}
     </>
   );
 };
