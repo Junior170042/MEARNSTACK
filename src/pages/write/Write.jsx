@@ -9,6 +9,7 @@ export const Write = () => {
   const [file, setFile] = useState(null);
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("Other");
+  const [wait, setWait] = useState(false)
 
   const handlePost = async (datos) => {
     try {
@@ -17,7 +18,6 @@ export const Write = () => {
       if (res) {
 
         window.location.replace("/")
-        return
       }
     } catch (error) {
 
@@ -33,24 +33,31 @@ export const Write = () => {
       categories: cat
     };
 
+    setWait(true)
+
     if (file) {
       const data = new FormData();
-      const fileName = Date.now() + file.name;
+      const fileName = file.name;
 
       data.append("name", fileName);
       data.append("image", file);
+      data.append("type", "postImage");
 
       try {
-        const data = await axios.post(baseUrl + "/post/upload/file", data)
-        newPost.photo = data.secure_url
+        const getUrl = await axios.post(baseUrl + "/post/upload/file", data
+        )
+
+        newPost.photo = getUrl.data.url
 
         await handlePost(newPost)
+        setWait(false)
       } catch (error) {
-
+        setWait(false)
       }
     } else {
 
       await handlePost(newPost)
+      setWait(false)
     }
 
 
@@ -73,7 +80,9 @@ export const Write = () => {
           </label>
           <input type="file" id="files" style={{ display: "none" }}
             name="file"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={(e) => {
+              setFile(e.target.files[0])
+            }}
           />
           <input
             type="text"
@@ -110,7 +119,7 @@ export const Write = () => {
             />
           </div>
         </div>
-        <button className="btn-publish" type="submit">Add Post</button>
+        <button className="btn-publish" type="submit">{wait ? "Sending..." : "Add Post"}</button>
       </form>
     </div>
   );

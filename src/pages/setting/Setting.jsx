@@ -4,7 +4,7 @@ import { Context } from "../../context/Context";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { ErrorServer } from "../errorServer/ErrorServer";
-import { baseUrl, imagePath } from "../../baseUrl";
+import { baseUrl } from "../../baseUrl";
 
 export const Setting = () => {
   const { user, dispatch } = useContext(Context);
@@ -12,6 +12,30 @@ export const Setting = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [wait, setWait] = useState(false)
+
+
+  const handleUpdate = async (data) => {
+    try {
+      await axios.post(baseUrl + "/post/update_many", {
+        old: user.username, newUser: username
+      })
+      //sending datas to the server for updating
+      const res = await axios.put(baseUrl + "/user/" + user._id, data);
+      dispatch({ type: "UPDATE_SUCCESS", payload: await res.data })
+
+      toast.success("User updated successfully!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+      setTimeout(() => {
+
+        window.location.replace("/");
+      }, 2000)
+    } catch (error) {
+      showMessage(ErrorServer(error.response.data))
+      dispatch({ type: "UPDATE_FAILURE" })
+    }
+  }
 
 
   const showMessage = (message) => {
@@ -76,6 +100,8 @@ export const Setting = () => {
         email,
         password
       };
+      setWait(true)
+
       //file management
       if (file) {
         //creting a form data
@@ -84,35 +110,30 @@ export const Setting = () => {
         const fileName = Date.now() + file.name;
         //adding the file and the name to the form data
         data.append("name", fileName);
-        data.append("file", file);
+        data.append("image", file);
+        data.append("type", "userImage")
 
-        //adding the file name to the json request
-        updatedUser.picture = fileName;
+
 
         try {
-          await axios.post(baseUrl + "/upload", data)
+          const getUrl = await axios.post(baseUrl + "/post/upload/file", data
+          )
+
+          updatedUser.picture = getUrl.data.url
+
+          await handleUpdate(updatedUser)
+          setWait(false)
         } catch (error) {
-
+          setWait(false)
         }
+      } else {
+        await handleUpdate(updatedUser)
+
+        setWait(false)
       }
 
-      //updating the username in every post where the username is changed
-      try {
-        await axios.post(baseUrl + "/post/update_many", {
-          old: user.username, newUser: username
-        })
-        //sending datas to the server for updating
-        const res = await axios.put(baseUrl + "/user/" + user._id, updatedUser);
-        dispatch({ type: "UPDATE_SUCCESS", payload: await res.data })
 
-        toast.success("User updated successfully!", {
-          position: toast.POSITION.TOP_CENTER
-        });
-        window.location.reload();
-      } catch (error) {
-        showMessage(ErrorServer(error.response.data))
-        dispatch({ type: "UPDATE_FAILURE" })
-      }
+
 
 
 
@@ -131,7 +152,7 @@ export const Setting = () => {
           <label>Profile picture</label>
           <div className="setting-profile">
             <img
-              src={file ? URL.createObjectURL(file) : imagePath + user.picture}
+              src={file ? URL.createObjectURL(file) : user.picture}
               alt="Profile"
               className="setting-img"
             />
@@ -161,7 +182,7 @@ export const Setting = () => {
 
             name="cpass"
             onChange={null} />
-          <button className="btn-setting" type="submit">Update</button>
+          <button className="btn-setting" type="submit">{wait ? "Updating..." : "Update"}</button>
         </form>
       </div>
 

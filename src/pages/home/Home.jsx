@@ -44,7 +44,7 @@ export const Home = () => {
         }
         <Post posts={posts} error={error} loading={loading} />
         <div className={!search ? "flex-side" : "home-side"}>
-          <SideBar posts={posts} loading={loading} />
+          {!loading && <SideBar posts={posts} />}
 
 
           {

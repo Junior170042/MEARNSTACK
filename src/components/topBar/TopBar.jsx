@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./TopBar.css";
-import { imagePath } from "../../baseUrl";
 
 export const TopBar = () => {
 
@@ -58,7 +57,7 @@ export const TopBar = () => {
           <div className="user-profile">
             <Link className="link-image" to="/setting"><img
               className="profileImg "
-              src={imagePath + user.picture}
+              src={user.picture}
               alt="Profile"
             /></Link>
             <p>{user.username}</p>

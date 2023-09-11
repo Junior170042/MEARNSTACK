@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { baseUrl } from "../../baseUrl";
-import Loading from "../../loading/Loading";
+import Spinner from "../../loading/Loading";
 //import { useLocation } from "react-router-dom";
 export const PostDetail = ({ post_id }) => {
   const [post, setPost] = useState({});
@@ -61,7 +61,7 @@ export const PostDetail = ({ post_id }) => {
 
 
       <div className="detail-content">
-        {loadMode ? <Loading /> :
+        {loadMode ? <Spinner /> :
           <img
             src={post.photo ? post.photo : ""}
             alt="detail"
