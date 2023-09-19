@@ -45,8 +45,6 @@ export const Home = () => {
         <Post posts={posts} error={error} loading={loading} />
         <div className={!search ? "flex-side" : "home-side"}>
           {!loading && <SideBar posts={posts} />}
-
-
           {
             posts.length !== 1 &&
             <SideBarPost />

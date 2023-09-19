@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import { ToastContainer, toast } from "react-toastify";
 import "./login.css";
@@ -37,11 +36,9 @@ export const Login = () => {
       } else {
         setCookie("isUser", res.data.user, { maxAge: 6500 })
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.user })
-
       }
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE" })
-
       return toast.error("Sorry, we can not process your request at this moment! Try later", {
         position: toast.POSITION.TOP_CENTER
       })
@@ -63,11 +60,6 @@ export const Login = () => {
               ref={pasRef} />
             <button className="btn-login" type="submit" disabled={isFitching}>Login</button>
           </form>
-          <button className="btnToRegister">
-            <Link to="/register" className="link">
-              Register
-            </Link>
-          </button>
           <ToastContainer />
         </div>
       }

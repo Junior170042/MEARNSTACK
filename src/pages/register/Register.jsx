@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./register.css";
 import axios from "axios";
 import { HandleRegister } from "./HandleRegister";
@@ -96,11 +95,6 @@ export const Register = () => {
         <p className="errRepass error hide" id="repass"></p>
         <button className="register-button" type="submit">Register</button>
       </form>
-      <button className="btnToLogin">
-        <Link to="/login" className="link">
-          Login
-        </Link>
-      </button>
 
       <ToastContainer />
     </div>

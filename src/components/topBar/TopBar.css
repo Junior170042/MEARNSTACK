@@ -12,7 +12,8 @@
 }
 
 div.active {
-    color: #333;
+    color: #29131c;
+    box-shadow: 2px 3px 2px 3px rgba(20, 20, 20, 0.2);
 }
 
 div.active .topLeft .leftIcon {
