@@ -4,9 +4,9 @@ import "./postDetail.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { baseUrl } from "../../baseUrl";
-import Spinner from "../../loading/Loading";
-//import { useLocation } from "react-router-dom";
+import { baseUrl, imagePath } from "../../baseUrl";
+import { ToastContainer, toast } from "react-toastify";
+import Spinner from "../../loading/Spinner";
 export const PostDetail = ({ post_id }) => {
   const [post, setPost] = useState({});
   const { user } = useContext(Context);
@@ -15,11 +15,6 @@ export const PostDetail = ({ post_id }) => {
   const [desc, setDesc] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [loadMode, setLoadMode] = useState(null);
-  /*
-  wse can get the id from the url in the location object
-  const location = useLocation();
-  we split the path url into an array and we get the id from that array
-  const _id = location.pathname.split('/')[2];*/
 
   const handleDelete = async () => {
 
@@ -37,7 +32,9 @@ export const PostDetail = ({ post_id }) => {
       await axios.put(baseUrl + "/post/" + post_id, { username: user.username, title: title, description: desc })
       window.location.reload();
     } catch (error) {
-
+      return toast.error("Request failed! Try later!", {
+        position: toast.POSITION.TOP_CENTER
+      })
     }
   }
 
@@ -63,7 +60,7 @@ export const PostDetail = ({ post_id }) => {
       <div className="detail-content">
         {loadMode ? <Spinner /> :
           <img
-            src={post.photo ? post.photo : ""}
+            src={post.photo ? post.photo : imagePath + "placeholder.png"}
             alt="detail"
             className="detailImg"
           />}
@@ -88,7 +85,7 @@ export const PostDetail = ({ post_id }) => {
 
         {!editMode && (
 
-          loadMode ? "" : <div className="detail-info">
+          loadMode ? <Spinner /> : <div className="detail-info">
 
             <Link to={"/?user=" + post.username} className="link">
               <span className="detail-auther">
@@ -109,7 +106,7 @@ export const PostDetail = ({ post_id }) => {
 
 
       </div>
-
+      <ToastContainer />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import "./post.css";
 export const Post = ({ posts, loading, error }) => {
   return (
     <>
-      {(!loading || posts.length > 0) && <h1 className="head-titles">Latest posts</h1>}
+      {(!loading && posts.length > 0) && <h1 className="head-titles">Latest posts</h1>}
       <div className={posts.length === 1 ? "singular" : "posts"}>
         {posts.map(p => <SinglePost key={p._id} post={p} />)}
       </div>

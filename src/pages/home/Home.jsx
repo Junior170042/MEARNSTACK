@@ -16,12 +16,12 @@ export const Home = () => {
   const [loading, setLoading] = useState(null)
   const [error, setError] = useState(null)
   const { search } = useLocation();
-
+  const endPoint = baseUrl + '/post' + search
   useEffect(() => {
     setLoading(true);
     const getPost = async () => {
       try {
-        const resp = await axios.get(baseUrl + '/post' + search, { sort: { timestamp: -1 } });
+        const resp = await axios.get(endPoint, { sort: { timestamp: -1 } });
         setPosts(resp.data);
         setLoading(null)
       } catch (error) {
@@ -32,7 +32,7 @@ export const Home = () => {
     }
     getPost();
 
-  }, [search])
+  }, [endPoint])
 
   return (
     <>
