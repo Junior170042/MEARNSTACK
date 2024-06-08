@@ -1,4 +1,4 @@
 
-export const baseUrl = "https://lazy-blue-butterfly-cuff.cyclic.cloud/api";
-export const imagePath = "https://lazy-blue-butterfly-cuff.cyclic.cloud/images/";
+export const baseUrl = "https://block-backend-p8as.onrender.com/api";
+export const imagePath = "https://block-backend-p8as.onrender.com/images/";
 
